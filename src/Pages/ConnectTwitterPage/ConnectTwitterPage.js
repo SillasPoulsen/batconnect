@@ -4,11 +4,6 @@ import { ethers } from "ethers";
 
 import myEpicNft from "../../utils/lensABI.json";
 
-const TWITTER_HANDLE = "_buildspace";
-const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
-const OPENSEA_LINK = "";
-const TOTAL_MINT_COUNT = 50;
-
 // I moved the contract address to the top for easy access.
 const CONTRACT_ADDRESS = "0xF1aD06077E05ebD0e0c0e8eBC104fE436c560D6F";
 
