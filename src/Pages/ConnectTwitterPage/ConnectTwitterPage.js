@@ -12,14 +12,7 @@ const TOTAL_MINT_COUNT = 50;
 // I moved the contract address to the top for easy access.
 const CONTRACT_ADDRESS = "0xF1aD06077E05ebD0e0c0e8eBC104fE436c560D6F";
 
-export default function Landingpage() {
-  const [profile, setProfile] = useState({
-    image:
-      "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
-    Name: "Name",
-    Bio: "",
-  });
-
+export default function Landingpage({ profile }) {
   const [currentAccount, setCurrentAccount] = useState("");
 
   const checkIfWalletIsConnected = async () => {
