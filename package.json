@@ -5,6 +5,7 @@
   "dependencies": {
     "@apollo/client": "^3.5.10",
     "@auth0/auth0-react": "^1.9.0",
+    "ethers": "^5.6.1",
     "graphql": "^16.3.0",
     "nvm": "^0.0.4",
     "react": "^16.14.0",
