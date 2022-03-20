@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import ConnectTwitterPage from "./Pages/ConnectTwitterPage/ConnectTwitterPage";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
+import { useAuth0 } from "@auth0/auth0-react";
+import Loading from "./Pages/LandingPage/Components/loading";
 
 function App() {
   const [profile, setProfile] = useState({
@@ -12,9 +14,12 @@ function App() {
     Name: "Name",
     Bio: "",
   });
+  const { isLoading } = useAuth0();
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <div className="App">
-        <Routes>
           <Route path="/" element={<LandingPage setProfile={setProfile} />} />
           <Route
             path="/connect"
@@ -24,7 +29,6 @@ function App() {
             path="/profile/:id"
             element={<ProfilePage profile={profile} />}
           />
-        </Routes>
     </div>
   );
 }

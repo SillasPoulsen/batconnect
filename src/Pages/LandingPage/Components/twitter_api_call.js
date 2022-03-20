@@ -9,7 +9,7 @@ var T = new Twit({
 // T.get('search/tweets', { q: 'banana since:2011-07-11', count: 1 }, function(err, data, response) {
 //   console.log(data)
 // })
-T.get('followers/ids', { screen_name: 'FracaShawG' }, function (err, data, response) {
+T.get('users/profile_banner', { screen_name: 'FracaShawG' }, function (err, data, response) {
 console.log(data);
 //console.log(response);
 console.log(err);

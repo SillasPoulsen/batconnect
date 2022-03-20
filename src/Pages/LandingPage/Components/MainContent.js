@@ -1,16 +1,18 @@
-import LoginButton from "./login-button";
+import AuthenticationButton from "./authentication-button";
+import LogoutButton from "./logout-button";
 import { useAuth0 } from "@auth0/auth0-react";
 export default function Maincontent({setProfile}) {
   const { user } = useAuth0();
   //const { name, picture, email } = user;
   console.log(user);
-  //  setProfile(user)
+  //setProfile(user)
   return (
     <div className="main">
       <div className="leftside-content">
         <h1>Bring your followers to web3</h1>
         <p>Own your content, followers and income streams. </p>
-        <LoginButton />
+        <AuthenticationButton />
+        <LogoutButton />
         <a className="signup-btn" href="google.com">
           Connect twitter
         </a>
