@@ -6,11 +6,14 @@ import ConnectTwitterPage from "./Pages/ConnectTwitterPage/ConnectTwitterPage";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 
 function App() {
+  const [Name, setName] = useState({
+    Name: "FracaShawG"
+  });
   const [profile, setProfile] = useState({
-    image:
-      "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
     Name: "Name",
-    Bio: "",
+    image:
+      "https://twitter.com/" + Name.Name + "/photo",
+    Bio: ""
   });
   return (
     <div className="App">
