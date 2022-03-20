@@ -8,10 +8,13 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 // I moved the contract address to the top for easy access.
 const CONTRACT_ADDRESS = "0x7c86e2a63941442462cce73EcA9F07F4Ad023261";
-
+  
 export default function Landingpage({ profile }) {
   const [currentAccount, setCurrentAccount] = useState("");
-
+  const { user } = useAuth0();
+  console.log(user)
+  //const { name, picture, email } = user;
+  //console.log(name);
   const checkIfWalletIsConnected = async () => {
     const { ethereum } = window;
 
@@ -111,12 +114,12 @@ export default function Landingpage({ profile }) {
 
         const profileData = {
           to: '0x42d9179A8C77ef0914Be0320cf74a10a75d3548f',
-          handle: "myHandle",
-          imageURI: "myImgURI",
+          handle: 'myHandle',
+          imageURI: 'myImgURI',
           followModule: '0x0000000000000000000000000000000000000000',
           followModuleData: [],
-          followNFTURI: "myNFTPic"
-        }
+          followNFTURI: 'myNFTPic'
+        };
 
         console.log("Going to pop wallet now to pay gas...");
         let nftTxn = await connectedContract.createProfile(profileData);

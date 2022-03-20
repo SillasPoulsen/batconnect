@@ -1,6 +1,10 @@
 import LoginButton from "./login-button";
-
-export default function Maincontent() {
+import { useAuth0 } from "@auth0/auth0-react";
+export default function Maincontent({setProfile}) {
+  const { user } = useAuth0();
+  //const { name, picture, email } = user;
+  console.log(user);
+  //  setProfile(user)
   return (
     <div className="main">
       <div className="leftside-content">

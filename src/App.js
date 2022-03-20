@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
         <Routes>
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<LandingPage setProfile={setProfile} />} />
           <Route
             path="/connect"
             element={<ConnectTwitterPage profile={profile} />}
