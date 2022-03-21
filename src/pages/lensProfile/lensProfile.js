@@ -1,15 +1,13 @@
 import { useEffect, useState } from 'react'
-import { profiles } from '../../Queries/ProfilesQuery.ts'
+import { profiles } from '../../queries/ProfilesQuery.ts'
 import { useParams } from "react-router-dom";
 
-function ProfilePage() {
+function LensProfile() {
 
     const [profile, setProfile] = useState([]);
 
   let { ethAddress, id } = useParams();
   console.log(id, ethAddress);
- 
-  console.log("profilssssssssse", profile)
 
   useEffect( () => {
 
@@ -33,4 +31,4 @@ function ProfilePage() {
   );
 }
 
-export default ProfilePage;
+export default LensProfile;

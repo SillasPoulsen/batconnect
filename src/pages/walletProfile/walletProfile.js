@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react'
-import { profiles } from '../../Queries/ProfilesQuery.ts'
+import { profiles } from '../../queries/ProfilesQuery.ts'
 import { useHistory, useParams } from "react-router-dom";
 
-function AllProfilesPage() {
+function WalletProfile() {
 
   const history = useHistory();
 
   const [allProfiles, setAllProfiles] = useState([]);
-  console.log("hereee", allProfiles);
 
   let { ethAddress } = useParams();
 
@@ -41,4 +40,4 @@ function AllProfilesPage() {
   );
 }
 
-export default AllProfilesPage;
+export default WalletProfile;

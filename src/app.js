@@ -2,11 +2,8 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { NavBar, Footer, Loading } from "./components";
-import { Home, Profile } from "./views";
+import { Home, LensProfile, Profile, WalletProfile } from "./pages";
 import ProtectedRoute from "./auth/protected-route";
-import AllProfilesPage from "./Pages/ProfilePages/AllProfilesPage";
-import ProfilePage from "./Pages/ProfilePages/ProfilePage";
-
 
 import "./app.css";
 
@@ -26,11 +23,11 @@ const App = () => {
           <ProtectedRoute path="/profile" component={Profile} />
           <Route
             path="/lensprofile/:ethAddress"
-            exact component={AllProfilesPage}
+            exact component={WalletProfile}
           />
           <Route
             path="/lensprofile/:ethAddress/:id"
-            exact component={ProfilePage}
+            exact component={LensProfile}
           />
         </Switch>
       </div>

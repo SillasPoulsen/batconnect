@@ -14,7 +14,7 @@ export const apolloClient = new ApolloClient({
 });
 
 ReactDOM.render(
-  <Router>
+ <Router>
     <Auth0ProviderWithHistory>
       <ApolloProvider client={apolloClient}>
         <App />

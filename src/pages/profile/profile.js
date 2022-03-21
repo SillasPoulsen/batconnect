@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 import { ethers } from "ethers";
 
-import lensHubABI from "../abi/lensHubABI.json";
+import lensHubABI from "../../abi/lensHubABI.json";
 
 import { useAuth0 } from "@auth0/auth0-react";
 
