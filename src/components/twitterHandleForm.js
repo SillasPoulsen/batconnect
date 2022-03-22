@@ -1,20 +1,24 @@
 import React from "react";
-import { useState } from "react/cjs/react.production.min";
+import { Fragment, useState } from "react";
+import { Link } from 'react-router-dom'
 
-const twitterHandleForm = () => {
-  const {twitterHandle, setTwitterHandle} = useState('');
+const TwitterHandleForm = ({twitterHandle, setTwitterHandle}) => {
   return (
-    <form>
-      <label for="fname">Your Twitter Handle</label>
-      <input 
-        type="text" 
-        id="fname" 
-        name="fname" 
-        value={twitterHandle}
-        onChange={(e) => setTwitterHandle(e.target.value)}
-      ></input>
-    </form>
+    <Fragment>
+      <form>
+        <label htmlFor="fname">Your Twitter Handle</label>
+        <input 
+          type="text" 
+          id="fname" 
+          name="fname" 
+          value={twitterHandle}
+          onChange={(e) => setTwitterHandle(e.target.value)}
+        ></input>
+        <p>{twitterHandle}</p>
+      </form>
+      <Link className='p-4' to='/newlens'>newlens</Link>
+    </Fragment>
   );
 };
 
-export default LoginButton;
+export default TwitterHandleForm;

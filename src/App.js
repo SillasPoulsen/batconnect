@@ -6,6 +6,9 @@ import About from './pages/about';
 import Menu from './pages/menu';
 import Footer from './components/Footer';
 import Dropdown from './components/Dropdown';
+import TwitterHandleForm from './components/twitterHandleForm';
+import newLens from './components/newLens';
+import Twitter from './pages/Twitter';
 
 
 
@@ -41,6 +44,7 @@ return (
        <Route path='/' exact component={Home} />
        <Route path='/menu' component={Menu} />
        <Route path='/about' component={About} />
+       <Route path='/twitter' component={Twitter} />
     </Switch>
     <Footer />
   </>

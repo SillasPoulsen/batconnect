@@ -16,6 +16,7 @@ const Navbar = ({ toggle }) => {
         <Link className='p-4' to='/'>Home</Link>
         <Link className='p-4' to='/about'>Profile</Link>
         <Link className='p-4' to='/menu'>Why Lens</Link>
+        <Link className='p-4' to='/Twitter'>Connect Twitter</Link>
     </div>
   </nav>
   )
