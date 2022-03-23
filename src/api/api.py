@@ -2,6 +2,7 @@ import os
 import twitter
 from dotenv import load_dotenv
 from flask import Flask
+from flask_cors import CORS
 
 # API authentication
 def api_auth():
@@ -39,6 +40,7 @@ def take_user_info(r):
     return user_profile
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def index():
