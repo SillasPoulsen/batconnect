@@ -19,7 +19,7 @@ const NewLens = () => {
   if (toggle){
     return (
       <Fragment>
-        <img src={lensImage}/>
+        <img src={lensImage} class="inline object-cover w-30 h-30 mr-2 rounded-full"/>
         <form>
         <button className="bg-purple-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="button" onClick={() =>{setToggle(false)}}>Change Profile Picture</button>
         <label className="block text-gray-500 font-bold md:text_center mb-1 md:mb-0 pr-4">Your new Lens Handle</label>
@@ -44,7 +44,7 @@ const NewLens = () => {
   else{
     return(
       <Fragment>
-      <img src={lensImage}/>
+      <img src={lensImage} class="inline object-cover w-30 h-30 mr-2 rounded-full"/>
       <form>
         <button className="bg-purple-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="button" onClick={() =>{setToggle(true)}}>Done changing my profile URL</button>
         <label className="block text-gray-500 font-bold md:text-center mb-1 md:mb-0 pr-4" for="inline-full-name">Your Lens Profile Picture URL</label>
