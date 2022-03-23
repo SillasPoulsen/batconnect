@@ -2,7 +2,6 @@ import os
 import twitter
 from dotenv import load_dotenv
 from flask import Flask
-from flask_cors import CORS
 
 # API authentication
 def api_auth():
@@ -13,8 +12,33 @@ def api_auth():
 
     return api
 
+# Wrap api call in a error handler
+def call_api_error_managed(name, api_call_dict):
+    returns = {}
+
+    try:
+        for k, v in api_call_dict.items():
+            returns[k] = v(screen_name=name)
+    except twitter.error.TwitterError as err:
+        print("TWITTER API ERROR: ", err)
+        return {"error": "user not found"}
+    return returns
+
+# Extract user info from response
+def take_user_info(r):
+    user_profile = {
+        'name': r["user"].name,
+        'bio': r["user"].description,
+        'id': r["user"].id_str,
+        'screenName': r["user"].screen_name,
+        'profileImageUrl': r["user"].profile_image_url,
+        'followersCount': r["user"].followers_count,
+        'friendsCount': r["user"].friends_count
+    }
+
+    return user_profile
+
 app = Flask(__name__)
-CORS(app)
 
 @app.route('/')
 def index():
@@ -25,25 +49,19 @@ def index():
 def all(name):
     api = api_auth()
 
-    try:
-        user = api.GetUser(screen_name=name)
-        followers = api.GetFollowers(screen_name=name)
-        friends = api.GetFriends(screen_name=name)
-    except twitter.error.TwitterError:
-        return {"error": "user not found"}
-    
-    user_profile = {
-        'name': user.name,
-        'bio': user.description,
-        'id': user.id_str,
-        'screenName': user.screen_name,
-        'profileImageUrl': user.profile_image_url,
-        'followersCount': user.followers_count,
-        'friendsCount': user.friends_count
+    api_calls = {
+        "user": api.GetUser,
+        "followers": api.GetFollowers,
+        "friends": api.GetFriends
     }
 
-    followers = [(u.id, u.screen_name, u.name) for u in followers]
-    friends = [(u.id, u.screen_name, u.name) for u in friends]
+    r = call_api_error_managed(name, api_calls)
+    if "error" in r.keys():
+        return r
+    
+    user_profile = take_user_info(r)
+    followers = [(u.id, u.screen_name, u.name) for u in r["followers"]]
+    friends = [(u.id, u.screen_name, u.name) for u in r["friends"]]
 
     return {"user": user_profile, "followers": followers, "friends": friends,}
 
@@ -51,46 +69,43 @@ def all(name):
 def user(name):
     api = api_auth()
     
-    try:
-        r = api.GetUser(screen_name=name)
-    except twitter.error.TwitterError:
-        return {"error": "user not found"}
-
-    user_profile = {
-        'name': r.name,
-        'bio': r.description,
-        'id': r.id_str,
-        'screenName': r.screen_name,
-        'profileImageUrl': r.profile_image_url,
-        'followersCount': r.followers_count,
-        'friendsCount': r.friends_count
+    api_calls = {
+        "user": api.GetUser
     }
 
-    return {'user': user_profile}
+    r = call_api_error_managed(name, api_calls)
+    if "error" in r.keys():
+        return r
+    return {'user': take_user_info(r)}
 
 @app.route('/followers/<name>')
 def followers(name):
     api = api_auth()
+    
+    api_calls = {
+        "followers": api.GetFollowers
+    }
 
-    try:
-        r = api.GetFollowers(screen_name=name)
-    except twitter.error.TwitterError:
-        return {"error": "user not found"}
+    r = call_api_error_managed(name, api_calls)
+    if "error" in r.keys():
+        return r
 
-    followers = [(u.id, u.screen_name, u.name) for u in r]
-
+    followers = [(u.id, u.screen_name, u.name) for u in r['followers']]
     return {'followers': followers}
 
 @app.route('/friends/<name>')
 def friends(name):
     api = api_auth()
     
-    try:
-        r = api.GetFriends(screen_name=name)
-    except twitter.error.TwitterError:
-        return {"error": "user not found"}
+    api_calls = {
+        "friends": api.GeFriendst
+    }
 
-    friends = [(u.id, u.screen_name, u.name) for u in r]
+    r = call_api_error_managed(name, api_calls)
+    if "error" in r.keys():
+        return r
+    
+    friends = [(u.id, u.screen_name, u.name) for u in r['friends']]
 
     return {'friends': friends}
 
