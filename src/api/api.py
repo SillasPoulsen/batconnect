@@ -2,6 +2,7 @@ import os
 import twitter
 from dotenv import load_dotenv
 from flask import Flask
+from flask_cors import CORS
 
 # API authentication
 def api_auth():
@@ -13,6 +14,7 @@ def api_auth():
     return api
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def index():
@@ -43,7 +45,7 @@ def all(name):
     followers = [(u.id, u.screen_name, u.name) for u in followers]
     friends = [(u.id, u.screen_name, u.name) for u in friends]
 
-    return {"user": user_profile, "followers": followers, "friends": friends}
+    return {"user": user_profile, "followers": followers, "friends": friends,}
 
 @app.route('/user/<name>')
 def user(name):

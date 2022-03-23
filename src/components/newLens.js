@@ -11,6 +11,17 @@ const NewLens = () => {
   const [lensImage, setLensImage] = useState("https://pbs.twimg.com/profile_images/1445430578443169796/JH226P-D_400x400.jpg");
   const [toggle, setToggle] = useState(true);
 
+  const options = {
+    headers: {'X-Custom-Header': 'value'}
+  };
+
+  axios.get('http://127.0.0.1:5000/fracashawg')
+      .then(res => {
+        //setLensBio(res.data.user.bio);
+        //setLensImage(res.data.user.profileImageUrl);
+        console.log(res.data.user.profileImageUrl);
+      })
+
   if (toggle){
     return (
       <Fragment>
