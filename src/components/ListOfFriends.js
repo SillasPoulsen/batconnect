@@ -6,16 +6,16 @@ const ListOfFriends = ({ twitterHandle }) => {
   let [friends, setFriends] = useState([]);
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:5000/followers/" + twitterHandle.replace("@", ""))
+      .get("http://127.0.0.1:5000/friends/" + twitterHandle.replace("@", ""))
       .then((res) => {
-        console.log(res.data.followers[0][1]);
-        setFriends(res.data.followers);
+        console.log(res.data.friends[0].screenName);
+        setFriends(res.data.friends);
       });
   }, []);
   return (
     <>
       <div>
-        <h3>{friends}</h3>
+        <h3>{friends[].screenName}</h3>
       </div>
     </>
   );
