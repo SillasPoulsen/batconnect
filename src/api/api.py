@@ -78,6 +78,9 @@ def user(name):
     r = call_api_error_managed(name, api_calls)
     if "error" in r.keys():
         return r
+
+    print("\n\nAPI FULL RESPONSE", r)
+
     return {'user': take_user_info(r)}
 
 @app.route('/followers/<name>')
@@ -92,7 +95,14 @@ def followers(name):
     if "error" in r.keys():
         return r
 
-    followers = [(u.id, u.screen_name, u.name) for u in r['followers']]
+    print("\n\nAPI FULL RESPONSE", r['followers'])
+
+    followers = [{
+        "id": u.id, 
+        "screenName": u.screen_name, 
+        "profileImgURL": u.profile_image_url
+        } for u in r['followers']]
+
     return {'followers': followers}
 
 @app.route('/friends/<name>')
@@ -100,17 +110,23 @@ def friends(name):
     api = api_auth()
     
     api_calls = {
-        "friends": api.GeFriendst
+        "friends": api.GetFriends
     }
 
     r = call_api_error_managed(name, api_calls)
     if "error" in r.keys():
         return r
-    
-    friends = [(u.id, u.screen_name, u.name) for u in r['friends']]
+
+    print("\n\nAPI FULL RESPONSE", r['friends'])
+
+    friends = [{
+        "id": u.id, 
+        "screenName": u.screen_name, 
+        "profileImgURL": u.profile_image_url
+        } for u in r['friends']]
 
     return {'friends': friends}
 
 if __name__ == '__main__':
     load_dotenv('../')
-    app.run(debug=False)
+    app.run(debug=True)
