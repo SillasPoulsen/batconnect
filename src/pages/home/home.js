@@ -1,25 +1,100 @@
-import React from "react";
-import  { Redirect } from 'react-router-dom'
-import { useAuth0 } from "@auth0/auth0-react";
-
-const logo = "https://images.newscientist.com/wp-content/uploads/2021/02/09145420/h82g6f_web.jpg";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
-  const { isAuthenticated } = useAuth0();
+  const [currentAccount, setCurrentAccount] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
-  if (isAuthenticated)
-    return (
-      <Redirect to='profile/' />
-      );
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
+
+  useEffect(() => {
+    const hideMenu = () => {
+      if (window.innerWidth > 768 && isOpen) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener("resize", hideMenu);
+
+    return () => {
+      window.removeEventListener("resize", hideMenu);
+    };
+  });
+
+  const checkIfWalletIsConnected = async () => {
+    try {
+      const { ethereum } = window;
+
+      if (!ethereum) {
+        console.log("Make sure you have metamask!");
+        return;
+      } else {
+        console.log("We have the ethereum object", ethereum);
+      }
+
+      const accounts = await ethereum.request({ method: "eth_accounts" });
+
+      if (accounts.length !== 0) {
+        const account = accounts[0];
+        console.log("Found an authorized account:", account);
+        setCurrentAccount(account);
+      } else {
+        console.log("No authorized account found");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const connectWallet = async () => {
+    try {
+      const { ethereum } = window;
+
+      if (!ethereum) {
+        alert("Get MetaMask!");
+        return;
+      }
+
+      const accounts = await ethereum.request({
+        method: "eth_requestAccounts",
+      });
+
+      console.log("Connected", accounts[0]);
+      setCurrentAccount(accounts[0]);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    checkIfWalletIsConnected();
+  }, []);
 
   return (
-    <div className="text-center hero">
-      <img className="mb-3 app-logo" src={logo} alt="React logo" width="120" />
-      <h1 className="mb-4">BatConnect</h1>
-      <p className="lead">Bring your followers to web3 {" "}</p>
-      <p>Own your content, followers and income streams. </p>
+    <div className="h-screen bg-gradient-to-r from-violet-800 to-black flex flex-col justify-center items-center">
+      <h1 className="lg:text-8xl md:text:8xl sm:text-5xl text-5xl text-white mb-14 animate-bounce">
+        🦇 FLY TO WEB3 🦇
+      </h1>
+      {!currentAccount && (
+        <button
+          onClick={connectWallet}
+          className="text-violet-600  font-mono py-6 px-10 bg-white rounded-full text-3xl hover:bg-black transition duration-300 ease-in-out flex items-center"
+        >
+          💰Connect your wallet💰
+        </button>
+      )}
+      {currentAccount && (
+        <Link
+          to="/about"
+          className="text-violet-600 font-mono py-6 px-10 bg-white rounded-full text-3xl hover:bg-black transition duration-300 ease-in-out flex items-center animate-bounce"
+        >
+          🦇Connected. Go to next step🦇
+        </Link>
+      )}
     </div>
-    );
+  );
 };
 
 export default Home;
+

@@ -21,10 +21,7 @@ const MetamaskButton = () => {
       const account = accounts[0];
       console.log("Found an authorized account:", account);
       setCurrentAccount(account);
-
-      // Setup listener! This is for the case where a user comes to our site
-      // and ALREADY had their wallet connected + authorized.
-      //setupEventListener();
+      
     } else {
       console.log("No authorized account found");
     }
@@ -46,9 +43,6 @@ const MetamaskButton = () => {
       console.log("Connected", accounts[0]);
       setCurrentAccount(accounts[0]);
 
-      // Setup listener! This is for the case where a user comes to our site
-      // and connected their wallet for the first time.
-      //setupEventListener();
     } catch (error) {
       console.log(error);
     }
