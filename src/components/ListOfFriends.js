@@ -15,7 +15,7 @@ const ListOfFriends = ({ twitterHandle }) => {
   return (
     <>
       <div>
-        <h3>{friends[0][1]}</h3>
+        <h3>{friends}</h3>
       </div>
     </>
   );
