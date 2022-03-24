@@ -71,7 +71,7 @@ const MetamaskButton = () => {
 
   return (
       <div>
-        {currentAccount === "" ? renderNotConnectedContainer() : ""}
+        {currentAccount === "" ? renderNotConnectedContainer() : currentAccount}
       </div>
   )
    
