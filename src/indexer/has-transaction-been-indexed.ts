@@ -1,9 +1,5 @@
 import { gql } from '@apollo/client/core';
 import { apolloClient } from '../apollo-client';
-import { login } from '../services/login';
-import { argsBespokeInit } from '../config';
-import { getAddressFromSigner } from '../ethers.service';
-import { follow } from '../services/follow';
 
 const HAS_TX_BEEN_INDEXED = `
   query($request: HasTxHashBeenIndexedRequest!) {
@@ -124,17 +120,4 @@ export const pollUntilIndexed = async (txHash: string) => {
       throw new Error(response.reason);
     }
   }
-};
-
-const testTransaction = async () => {
-  const address = getAddressFromSigner();
-  console.log('testTransaction: address', address);
-
-  await login(address);
-
-  const hash = await follow('0x06');
-
-  await pollUntilIndexed(hash);
-
-  console.log('testTransaction: Indexed');
 };

@@ -16,10 +16,8 @@ const Home = () => {
     <div className="text-center hero">
       <img className="mb-3 app-logo" src={logo} alt="React logo" width="120" />
       <h1 className="mb-4">BatConnect</h1>
-      <p className="lead">
-      Bring your followers to web3 {" "}
+      <p className="lead">Bring your followers to web3 {" "}</p>
       <p>Own your content, followers and income streams. </p>
-      </p>
     </div>
     );
 };
