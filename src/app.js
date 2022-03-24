@@ -9,7 +9,7 @@ const App = () => {
     <div id="app">
       <NavBar />
         <Switch>
-          <Route path="/" exact component={Home} />
+          {/* <Route path="/" exact component={Home} />
           <Route path="/profile" component={Profile} />
           <Route
             path="/lensprofile/:ethAddress"
@@ -18,7 +18,13 @@ const App = () => {
           <Route
             path="/lensprofile/:ethAddress/:id"
             exact component={LensProfile}
-          />
+          /> */}
+        <Route path="/" exact component={Home} />
+        <Route path="/menu" component={Menu} />
+        <Route path="/about" component={About} />
+        <Route path="/twitter" component={Twitter} />
+        <Route path="/friends" component={FollowMyFriends} />
+
         </Switch>
       <Footer />
     </div>
