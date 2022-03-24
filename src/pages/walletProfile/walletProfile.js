@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { profiles } from '../../queries/ProfilesQuery.ts'
+import { profiles } from '../../services/get-profiles.ts'
 import { useHistory, useParams } from "react-router-dom";
 
 function WalletProfile() {

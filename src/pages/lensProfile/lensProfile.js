@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
-import { profiles } from '../../queries/ProfilesQuery.ts'
+import { profiles } from '../../services/get-profiles.ts'
 import { useParams } from "react-router-dom";
+import { CreateProfileButton } from '../../components';
 
 function LensProfile() {
 
@@ -12,7 +13,6 @@ function LensProfile() {
   useEffect( () => {
 
     const fetchData = async () => {
-    console.log("this is eth", ethAddress)
     const response = await profiles(ethAddress)
     setProfile(response.profiles.items[id]);
     }
@@ -26,6 +26,8 @@ function LensProfile() {
       { profile.picture ? <img src={ profile.picture.original.url } alt="profilepicture"></img> : <p>hello</p> }
         <h3>{profile.handle}</h3>
         <p>Bio:{profile.bio}</p>
+        <CreateProfileButton />
+        
       </div>
     </>
   );

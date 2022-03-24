@@ -5,6 +5,8 @@
   "dependencies": {
     "@apollo/client": "^3.5.10",
     "@auth0/auth0-react": "^1.9.0",
+    "@craco/craco": "^6.4.3",
+    "cross-fetch": "^3.1.5",
     "ethers": "^5.6.1",
     "graphql": "^16.3.0",
     "nvm": "^0.0.4",
@@ -15,10 +17,9 @@
     "tokenize": "^0.0.3"
   },
   "scripts": {
-    "start": "cross-env PORT=4040 react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -36,9 +37,9 @@
     ]
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.4",
+    "autoprefixer": "^9.8.8",
     "cross-env": "^7.0.2",
-    "postcss": "^8.4.12",
-    "tailwindcss": "^3.0.23"
+    "postcss": "^7.0.39",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
   }
 }

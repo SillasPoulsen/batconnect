@@ -29,7 +29,7 @@ const Profile = () => {
 
     if (accounts.length !== 0) {
       const account = accounts[0];
-      console.log("Found an authorized account:", account);
+      console.log("Found an authorized account: PS(WE ARE RUNNING THIS TWICE) ", account);
       setCurrentAccount(account);
 
       // Setup listener! This is for the case where a user comes to our site

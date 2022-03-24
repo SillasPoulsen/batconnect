@@ -4,7 +4,7 @@ import App from "./app";
 import { BrowserRouter as Router } from "react-router-dom";
 import Auth0ProviderWithHistory from "./auth/auth0-provider-with-history";
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
-import "./index.css";
+import './index.css';
 
 const APIURL = 'https://api-mumbai.lens.dev/';
 
