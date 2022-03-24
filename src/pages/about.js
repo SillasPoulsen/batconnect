@@ -1,18 +1,16 @@
-import React from 'react';
-import Bat from '../images/bat.jpeg'
-import Joao from '../images/jocorrei.jpeg'
-
-
+import React from "react";
+import Bat from "../images/bat.jpeg";
+import Joao from "../images/jocorrei.jpeg";
 
 const About = () => {
   return (
     <>
-       <main className="profile-page">
+      <main className="profile-page">
         <section className="relative block" style={{ height: "500px" }}>
           <div
             className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
-              backgroundImage: `url(${Bat})`
+              backgroundImage: `url(${Bat})`,
             }}
           >
             <span
@@ -77,7 +75,9 @@ const About = () => {
                         <span className="text-xl font-bold block uppercase tracking-wide text-gray-700">
                           10
                         </span>
-                        <span className="text-sm text-gray-500">Publications</span>
+                        <span className="text-sm text-gray-500">
+                          Publications
+                        </span>
                       </div>
                       <div className="lg:mr-4 p-3 text-center">
                         <span className="text-xl font-bold block uppercase tracking-wide text-gray-700">
@@ -90,7 +90,7 @@ const About = () => {
                 </div>
                 <div className="text-center mt-12">
                   <h3 className="text-4xl font-semibold leading-normal text-gray-800 mb-2">
-                  João Pedro Correia 
+                    João Pedro Correia
                   </h3>
                   <div className="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold uppercase">
                     <i className="fas fa-map-marker-alt mr-2 text-lg text-gray-500"></i>{" "}
@@ -109,12 +109,21 @@ const About = () => {
                   <div className="flex flex-wrap justify-center">
                     <div className="w-full lg:w-9/12 px-4">
                       <p className="mb-4 text-lg leading-relaxed text-gray-800">
-                      Artry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        Artry. Lorem Ipsum has been the industry's standard
+                        dummy text ever since the 1500s, when an unknown printer
+                        took a galley of type and scrambled it to make a type
+                        specimen book. It has survived not only five centuries,
+                        but also the leap into electronic typesetting, remaining
+                        essentially unchanged. It was popularised in the 1960s
+                        with the release of Letraset sheets containing Lorem
+                        Ipsum passages, and more recently with desktop
+                        publishing software like Aldus PageMaker including
+                        versions of Lorem Ipsum.
                       </p>
                       <a
                         href="#pablo"
                         className="font-normal text-violet-500"
-                        onClick={e => e.preventDefault()}
+                        onClick={(e) => e.preventDefault()}
                       >
                         Click to see Jocorrei's favorite social platforms.
                       </a>

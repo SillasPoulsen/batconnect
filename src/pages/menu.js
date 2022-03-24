@@ -1,9 +1,7 @@
 import React from "react";
-import Query from '../graphql/Query';
-
+import Query from "../graphql/Query";
 
 const Home = () => {
-
   return (
     <>
       <Query />

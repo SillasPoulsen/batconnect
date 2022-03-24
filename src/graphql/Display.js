@@ -1,19 +1,15 @@
-import React from 'react'
-import { useQuery, gql } from '@apollo/client'
+import React from "react";
+import { useQuery, gql } from "@apollo/client";
 
 const QUERY_PROFILE = gql`
-	query ping {
-		ping
-	}`
-	
+  query ping {
+    ping
+  }
+`;
 
 const Display = () => {
-	const {} = useQuery();
-	return (
-		<div>
-			
-		</div>
-	)
-}
+  const {} = useQuery();
+  return <div></div>;
+};
 
-export default Display
+export default Display;
