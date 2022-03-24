@@ -39,6 +39,9 @@ const Navbar = ({ toggle }) => {
         <Link className="p-4" to="/Twitter">
           Connect Twitter
         </Link>
+        <Link className="p-4" to="/friends">
+          Follow my Friends
+        </Link>
       </div>
     </nav>
   );
