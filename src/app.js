@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/navBar";
-import { Switch, Route } from "react-router-dom";
 import Home from "./pages/home";
 import Profile from "./pages/profile";
 import WhyLens from "./pages/whyLens";
@@ -9,39 +9,54 @@ import Twitter from "./pages/twitter";
 import FollowMyFriends from "./pages/followMyFriends";
 import WalletProfile from "./pages/walletProfile";
 import LensProfile from "./pages/lensProfile";
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 
+const APIURL = 'https://api-mumbai.lens.dev/';
+
+  export const apolloClient = new ApolloClient({
+    uri: APIURL,
+    cache: new InMemoryCache()
+  });
 const App = () => {
-
+  const [profileToggle, setProfileToggle] = useState(false);
+  
   return (
     <div id="app">
-      <NavBar />
-        <Switch>
-          {/* <Route path="/" exact component={Home} />
-          <Route path="/profile" component={Profile} />
-          <Route
-            path="/lensprofile/:ethAddress"
-            exact component={WalletProfile}
+      
+      
+        <Router>
+        <NavBar profileToggle={profileToggle} />
+        <ApolloProvider client={apolloClient}>
+          <Routes>
+            {/* <Route path="/" exact element={Home} />
+            <Route path="/profile" element={Profile} />
+            <Route
+              path="/lensprofile/:ethAddress"
+              exact element={WalletProfile}
+            />
+            <Route
+              path="/lensprofile/:ethAddress/:id"
+              exact element={LensProfile}
+            /> */}
+          <Route path="/" element={<Home setProfileToggle={setProfileToggle} />}  />
+          <Route path="/menu" element={<WhyLens/>} />
+          <Route path="/profile" element={<Profile/>} />
+          <Route path="/twitter" element={<Twitter/>} />
+          <Route path="/friends" element={<FollowMyFriends/>} />
+          <Route 
+            path="/lensprofile/:ethAddress" 
+            exact element={<WalletProfile/>}
           />
-          <Route
-            path="/lensprofile/:ethAddress/:id"
-            exact component={LensProfile}
-          /> */}
-        <Route path="/" exact component={Home} />
-        <Route path="/menu" component={WhyLens} />
-        <Route path="/profile" component={Profile} />
-        <Route path="/twitter" component={Twitter} />
-        <Route path="/friends" component={FollowMyFriends} />
-        <Route 
-          path="/lensprofile/:ethAddress" 
-          exact component={WalletProfile}
-        />
-        <Route 
-          path="/lensprofile/:ethAddress/:id" 
-          exact component={LensProfile}
-        />
-
-        </Switch>
-      <Footer />
+          <Route 
+            path="/lensprofile/:ethAddress/:id" 
+            exact element={<LensProfile/>}
+          />
+          </Routes>
+          </ApolloProvider>
+          <Footer />
+        </Router>
+    
+     
     </div>
   );
 };

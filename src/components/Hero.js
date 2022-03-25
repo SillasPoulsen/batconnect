@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ethers } from "ethers";
 
-const Hero = () => {
+const Hero = ( {setProfileToggle} ) => {
   const [currentAccount, setCurrentAccount] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => {
-    setIsOpen(!isOpen);
-  };
-
+  const passedfunction = setProfileToggle(true);
+  
   useEffect(() => {
     const hideMenu = () => {
       if (window.innerWidth > 768 && isOpen) {
@@ -40,6 +36,8 @@ const Hero = () => {
         const account = accounts[0];
         console.log("Found an authorized account:", account);
         setCurrentAccount(account);
+        passedfunction();
+        console.log("setProfileToggle ==>", true);
       } else {
         console.log("No authorized account found");
       }

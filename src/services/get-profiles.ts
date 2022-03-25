@@ -1,4 +1,4 @@
-import { apolloClient  } from "../index.js";
+import { apolloClient  } from "../app.js";
 import { gql } from "@apollo/client"
 
 export const profileQuery = `

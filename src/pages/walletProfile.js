@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { profiles } from '../services/get-profiles.ts'
-import { useHistory, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function WalletProfile() {
 
-  const history = useHistory();
+  const history = useNavigate();
 
   const [allProfiles, setAllProfiles] = useState([]);
 
