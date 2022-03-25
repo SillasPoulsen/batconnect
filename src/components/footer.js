@@ -2,8 +2,8 @@ import React from "react";
 
 const Footer = ({ ...otherProps }) => {
   return (
-    <footer className="bg-white flex flex-row">
-      <div className="w-full max-w-7xl mx-auto px-3 py-14">
+    <footer className="bg-white flex flex-row max-h-100px">
+      <div className="w-full max-w-7xl mx-auto">
         <span className="text-base font-medium text-gray-500">
           Built in a cave under{" "}
           <a
@@ -14,7 +14,7 @@ const Footer = ({ ...otherProps }) => {
           </a>
         </span>
       </div>
-      <div className="w-full max-w-7xl mx-auto px-3 py-14">
+      <div className="w-full max-w-7xl mx-auto ">
         <a
           href="https://github.com/"
           className="text-base font-medium text-gray-500"
