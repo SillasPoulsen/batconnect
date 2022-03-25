@@ -1,6 +1,7 @@
 import React from "react";
 import { Fragment, useState, useEffect } from "react";
 import axios from "axios";
+import CreateProfileButton from "./createProfileButton";
 
 const NewLens = ({ twitterHandle, setTwitterHandle }) => {
   const [lensBio, setLensBio] = useState("Bio");
@@ -59,12 +60,7 @@ const NewLens = ({ twitterHandle, setTwitterHandle }) => {
             onChange={(e) => setLensBio(e.target.value)}
           ></input>
         </form>
-        <button
-          className="bg-purple-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          type="button"
-        >
-          Mint my Lens profile !
-        </button>
+        <CreateProfileButton lensBio={lensBio} lensHandle={lensHandle} lensImage={lensImage} />
       </Fragment>
     );
   } else {
@@ -124,9 +120,7 @@ const NewLens = ({ twitterHandle, setTwitterHandle }) => {
             onChange={(e) => setLensBio(e.target.value)}
           ></input>
         </form>
-        <button className="bg-purple-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Mint my Lens profile !
-        </button>
+        <CreateProfileButton lensBio={lensBio} lensHandle={lensHandle} lensImage={lensImage} />
       </Fragment>
     );
   }

@@ -4,7 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import Home from "./pages/home";
 import Profile from "./pages/profile";
 import WhyLens from "./pages/whyLens";
-import Footer from "./components/Footer";
+import Footer from "./components/footer";
 import Twitter from "./pages/twitter";
 import FollowMyFriends from "./pages/followMyFriends";
 import WalletProfile from "./pages/walletProfile";
