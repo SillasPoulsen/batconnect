@@ -26,14 +26,11 @@ function WalletProfile() {
 
   return (
     <div class="flex flex-col items-center justify-center min-h-screen p-16 bg-slate-200">
-      <h1 class="my-10 font-medium text-3xl sm:text-4xl font-black">
-        Follow a Members
-        <span class="day" style={{ display: "inline-block" }}>
-          😎
-        </span>
-        <span class="night" style={{ display: "none" }}>
-          👀
-        </span>
+      <p class="day" style={{ display: "inline-block" }}>
+        Profiles owned by:
+      </p>
+      <h1 class="my-10 mt-0 font-medium text-3xl sm:text-4xl font-black">
+        {ethAddress}
       </h1>
       <div class="mb-4">
         <button
@@ -61,29 +58,22 @@ function WalletProfile() {
                         alt="profilepicture"
                       ></img>
                     ) : (
-                      <p>hello</p>
+                      <img
+                        class="avatar w-20 h-20 rounded-full"
+                        src="https://cdn.britannica.com/21/75121-050-8CF5E1DB/Bats-structures-organs-sound-frequencies-signals-contexts.jpg"
+                        alt="profilepicture"
+                      ></img>
                     )}
                   </div>
                   <div class="user-body flex flex-col mb-4 sm:mb-0 sm:mr-4">
                     <a href="google.com" class="title font-medium no-underline">
                       {address.handle}
                     </a>
-                    <div class="skills flex flex-col">
-                      <span class="subtitle text-slate-500">
-                        Marketing Liaison
-                      </span>
-                      <span class="subtitle text-slate-500">
-                        Coordinator 💪
-                      </span>
-                    </div>
                   </div>
                 </div>
                 {/* <!--Button content --> */}
                 <div class="user-option mx-auto sm:ml-auto sm:mr-0">
-                  <button
-                    class="btn inline-block select-none no-underline align-middle cursor-pointer whitespace-nowrap px-4 py-1.5 rounded text-base font-medium leading-6 tracking-tight text-white text-center border-0 bg-[#6911e7] hover:bg-[#590acb] duration-300"
-                    type="button"
-                  >
+                  <button class="h-10 px-5 m-2 text-purple-100 transition-colors duration-150 bg-purple-600 rounded-lg focus:shadow-outline hover:bg-purple-700">
                     Follow
                   </button>
                 </div>
@@ -91,13 +81,6 @@ function WalletProfile() {
               </div>
             );
           })}
-
-        <a
-          class="show-more block w-10/12 mx-auto py-2.5 px-4 text-center no-underline rounded hover:bg-[#f6f8f9] font-medium duration-300"
-          href="#/"
-        >
-          Show more members
-        </a>
       </div>
     </div>
   );
