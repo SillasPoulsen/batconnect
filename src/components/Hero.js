@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const Hero = ( {setProfileToggle} ) => {
   const [currentAccount, setCurrentAccount] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-  const passedfunction = setProfileToggle(true);
   
   useEffect(() => {
     const hideMenu = () => {
@@ -36,8 +35,8 @@ const Hero = ( {setProfileToggle} ) => {
         const account = accounts[0];
         console.log("Found an authorized account:", account);
         setCurrentAccount(account);
-        passedfunction();
-        console.log("setProfileToggle ==>", true);
+        setProfileToggle(true);
+        console.log("profileToggle ==> true");
       } else {
         console.log("No authorized account found");
       }
@@ -68,14 +67,11 @@ const Hero = ( {setProfileToggle} ) => {
       console.log(error);
     }
   };
-
-  useEffect(() => {
-    checkIfWalletIsConnected();
-  }, []);
+  checkIfWalletIsConnected();
 
   return (
-    <div className="h-screen bg-gradient-to-r from-violet-800 to-black flex flex-col justify-center items-center">
-      <h1 className="lg:text-8xl md:text:8xl sm:text-5xl text-5xl text-white mb-14 animate-bounce">
+    <div className="h-screen bg-violet flex flex-col justify-center items-center">
+      <h1 className="lg:text-8xl md:text:8xl sm:text-5xl text-5xl text-black mb-14 animate-bounce">
         🦇 FLY TO WEB3 🦇
       </h1>
       {!currentAccount && (
@@ -83,7 +79,7 @@ const Hero = ( {setProfileToggle} ) => {
           onClick={connectWallet}
           className="text-violet-600  font-mono py-6 px-10 bg-white rounded-full text-3xl hover:bg-black transition duration-300 ease-in-out flex items-center"
         >
-          💰Connect your wallet💰
+          Connect your wallet
         </button>
       )}
       {currentAccount && (

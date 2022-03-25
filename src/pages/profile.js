@@ -1,6 +1,5 @@
 import React from "react";
 import Bat from "../images/bat.jpeg";
-// import Joao from "../images/jocorrei.jpeg";
 
 const Profile = () => {
   return (

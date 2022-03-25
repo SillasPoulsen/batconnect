@@ -10,6 +10,7 @@ import FollowMyFriends from "./pages/followMyFriends";
 import WalletProfile from "./pages/walletProfile";
 import LensProfile from "./pages/lensProfile";
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
+import './app.css';
 
 const APIURL = 'https://api-mumbai.lens.dev/';
 
@@ -19,7 +20,7 @@ const APIURL = 'https://api-mumbai.lens.dev/';
   });
 const App = () => {
   const [profileToggle, setProfileToggle] = useState(false);
-  
+
   return (
     <div id="app">
       

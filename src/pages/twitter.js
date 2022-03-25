@@ -1,7 +1,6 @@
 import TwitterHandleForm from "../components/twitterHandleForm";
 import NewLens from "../components/newLens";
 import { useState } from "react";
-import CreateProfileButton from "../components/createProfileButton";
 
 const Twitter = () => {
   const [twitterHandle, setTwitterHandle] = useState("@you");

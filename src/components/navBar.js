@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const NavBar = ({ profileToggle }) => {
   
-  if(profileToggle == false){
+  if(profileToggle == true){
     return (
       <nav
         className="flex justify-between item-center h-16 bg-violet-300  text-black relatove pt-5 shadow-sm font-mono"
