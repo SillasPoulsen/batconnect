@@ -19,7 +19,7 @@ function LensProfile() {
   }, [ethAddress, id]);
 
   return (
-    <div class="h-screen bg-gray-200  dark:bg-gray-800   flex flex-wrap items-center  justify-center  ">
+    <div class="h-screen bg-gray-200  dark:bg-gray-800   flex flex-wrap items-center  justify-center ">
             <div class="container lg:w-2/6 xl:w-2/7 sm:w-full md:w-2/3    bg-white  shadow-lg    transform   duration-200 easy-in-out">
                 <div class=" h-32 overflow-hidden" >
                     <img class="w-full" src='https://thumbs.dreamstime.com/b/green-matrix-big-virtual-screen-49825584.jpg' alt="" />
