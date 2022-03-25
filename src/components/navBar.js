@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const NavBar = ({ profileToggle, ethAddress }) => {
+  console.log(ethAddress);
   if (profileToggle === true) {
     return (
       <nav className="navBar">

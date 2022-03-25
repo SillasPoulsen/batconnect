@@ -18,7 +18,7 @@ function LensProfile() {
   }, [ethAddress, id]);
 
   return (
-    <div class="h-screen bg-gray-200  dark:bg-gray-800   flex flex-wrap items-center  justify-center  ">
+    <div class="h-screen bg-gray-200  dark:bg-gray-800   flex flex-wrap items-center  justify-center ">
       <div class="container lg:w-2/6 xl:w-2/7 sm:w-full md:w-2/3    bg-white  shadow-lg    transform   duration-200 easy-in-out">
         <div class=" h-32 overflow-hidden">
           <img
@@ -30,13 +30,13 @@ function LensProfile() {
         <div class="flex justify-center px-5  -mt-12">
           {profile.picture ? (
             <img
-              class="h-32 w-32 bg-white p-2 rounded-full   "
+              class="h-32 w-32 bg-white p-2 rounded-full"
               src={profile.picture.original.url}
               alt=""
             />
           ) : (
             <img
-              class="h-32 w-32 bg-white p-2 rounded-full   "
+              class="h-32 w-32 bg-white p-2 rounded-full"
               src="https://www.kindpng.com/picc/m/451-4517876_default-profile-hd-png-download.png"
               alt=""
             />
@@ -70,13 +70,3 @@ function LensProfile() {
 }
 
 export default LensProfile;
-
-//  <div>
-//     {profile.picture ? (
-//       <img src={profile.picture.original.url} alt="profilepicture"></img>
-//     ) : (
-//       <p>hello</p>
-//     )}
-//     <h3>{profile.handle}</h3>
-//     <p>Bio:{profile.bio}</p>
-//     </div>
