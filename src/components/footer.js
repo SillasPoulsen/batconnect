@@ -20,12 +20,12 @@ const Footer = ({ ...otherProps }) => {
           className="text-base font-medium text-gray-500"
         >
           OpenBat{" "}
-          <a
-            href="https://github.com/SillasPoulsen/batconnect"
-            className="text-base font-medium text-violet-800"
-          >
-            Github
-          </a>
+        </a>
+        <a
+          href="https://github.com/SillasPoulsen/batconnect"
+          className="text-base font-medium text-violet-800"
+        >
+          Github
         </a>
       </div>
     </footer>

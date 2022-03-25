@@ -11,7 +11,7 @@ const ListOfFriends = ({ twitterHandle }) => {
         console.log(res.data.friends[0].screenName);
         setFriends(res.data.friends);
       });
-  }, []);
+  }, [twitterHandle]);
   return (
     <>
       <div>
