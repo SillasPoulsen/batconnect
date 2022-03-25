@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Hero = ( {setProfileToggle, setEthAddress} ) => {
+const Hero = ({ setProfileToggle, setEthAddress }) => {
   const [currentAccount, setCurrentAccount] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
-  
   useEffect(() => {
     const hideMenu = () => {
       if (window.innerWidth > 768 && isOpen) {
@@ -76,6 +75,7 @@ const Hero = ( {setProfileToggle, setEthAddress} ) => {
       <h1 className="lg:text-8xl md:text:8xl sm:text-5xl text-5xl text-black mb-14 animate-bounce">
         🦇 FLY TO WEB3 🦇
       </h1>
+      <p>Take your twitter account to WEB3, in less than 2</p>
       {!currentAccount && (
         <button
           onClick={connectWallet}
