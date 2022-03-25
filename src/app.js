@@ -9,40 +9,56 @@ import Twitter from "./pages/twitter";
 import FollowMyFriends from "./pages/followMyFriends";
 import WalletProfile from "./pages/walletProfile";
 import LensProfile from "./pages/lensProfile";
+import ShareProfile from "./pages/shareProfile";
 import './app.css';
 
 const App = () => {
   const [profileToggle, setProfileToggle] = useState(false);
-  const [ethAddrees, setEthAddress] = useState("0x")
+  const [ethAddrees, setEthAddress] = useState("0x");
   console.log("ethAddress", ethAddrees);
   return (
     <div id="app">
-      
-      
-        <Router>
+      <Router>
         <NavBar profileToggle={profileToggle} ethAddress={ethAddrees} />
           <Routes>
             <Route
               path="/lensprofile/:ethAddress"
-              exact element={<WalletProfile />}
+              exact
+              element={<WalletProfile />}
             />
             <Route
               path="/lensprofile/:ethAddress/:id"
-              exact element={<LensProfile />}
+              exact
+              element={<LensProfile />}
             />
-          <Route path="/" element={<Home setProfileToggle={setProfileToggle} setEthAddress={setEthAddress} />}  />
-          <Route path="/menu" element={<WhyLens/>} />
-          <Route path="/profile" element={<Profile/>} />
-          <Route path="/twitter" element={<Twitter/>} />
-          <Route path="/friends" element={<FollowMyFriends/>} />
-          <Route 
-            path="/lensprofile/:ethAddress" 
-            exact element={<WalletProfile/>}
-          />
-          <Route 
-            path="/lensprofile/:ethAddress/:id" 
-            exact element={<LensProfile/>}
-          />
+            <Route
+              path="/"
+              element={
+                <Home
+                  setProfileToggle={setProfileToggle}
+                  setEthAddress={setEthAddress}
+                />
+              }
+            />
+            <Route path="/menu" element={<WhyLens />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/twitter" element={<Twitter />} />
+            <Route path="/friends" element={<FollowMyFriends />} />
+            <Route
+              path="/shareprofile/:ethAddress"
+              element={<ShareProfile />}
+            />
+
+            <Route
+              path="/lensprofile/:ethAddress"
+              exact
+              element={<WalletProfile />}
+            />
+            <Route
+              path="/lensprofile/:ethAddress/:id"
+              exact
+              element={<LensProfile />}
+            />
           </Routes>
           <Footer />
         </Router>
