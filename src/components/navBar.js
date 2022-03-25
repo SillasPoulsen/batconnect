@@ -1,11 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-
 const NavBar = ({ profileToggle, ethAddress }) => {
   console.log(ethAddress);
-  if(profileToggle == true){
-
+  if (profileToggle === true) {
     return (
       <nav className="navBar">
         <Link to="/" className="pl-8">
@@ -32,7 +30,7 @@ const NavBar = ({ profileToggle, ethAddress }) => {
             Home
           </Link>
           <Link className="p-4" to={"/lensprofile/" + ethAddress}>
-            Profile
+            Profiles
           </Link>
           <Link className="p-4" to="/menu">
             Why Lens
