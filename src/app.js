@@ -30,14 +30,13 @@ const App = () => {
         <NavBar profileToggle={profileToggle} ethAddress={ethAddrees} />
         <ApolloProvider client={apolloClient}>
           <Routes>
-            <Route path="/profile" element={Profile} />
             <Route
               path="/lensprofile/:ethAddress"
-              exact element={WalletProfile}
+              exact element={<WalletProfile />}
             />
             <Route
               path="/lensprofile/:ethAddress/:id"
-              exact element={LensProfile}
+              exact element={<LensProfile />}
             />
           <Route path="/" element={<Home setProfileToggle={setProfileToggle} setEthAddress={setEthAddress} />}  />
           <Route path="/menu" element={<WhyLens/>} />
