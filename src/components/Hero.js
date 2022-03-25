@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Hero = ( {setProfileToggle} ) => {
+const Hero = ( {setProfileToggle, setEthAddress} ) => {
   const [currentAccount, setCurrentAccount] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+
   
   useEffect(() => {
     const hideMenu = () => {
@@ -35,6 +36,7 @@ const Hero = ( {setProfileToggle} ) => {
         const account = accounts[0];
         console.log("Found an authorized account:", account);
         setCurrentAccount(account);
+        setEthAddress(currentAccount);
         setProfileToggle(true);
         console.log("profileToggle ==> true");
       } else {
