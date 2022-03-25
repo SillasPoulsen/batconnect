@@ -5,7 +5,7 @@ const NavBar = ({ profileToggle, ethAddress }) => {
   console.log(ethAddress);
   return (
     <>
-      <div class="dark:bg-gray-900">
+      <div className="dark:bg-gray-900">
         <div>
           {/* !-- For md screen size */}
           <div class="relative">
