@@ -23,7 +23,7 @@ const NewLens = ({ twitterHandle, setTwitterHandle }) => {
 
     return (
       <div className="h-screen bg-slate-50 flex justify-center items-center w-full">
-  <form>
+  <form >
     <div className="bg-white px-10 py-8 rounded-xl w-screen shadow-md max-w-sm">
       <img className="h-14 mb-4 mx-auto" src={lensImage} alt="" />
       <div className="space-y-4">

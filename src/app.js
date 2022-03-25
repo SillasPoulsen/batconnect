@@ -21,6 +21,7 @@ const APIURL = 'https://api-mumbai.lens.dev/';
 const App = () => {
   const [profileToggle, setProfileToggle] = useState(false);
   const [ethAddrees, setEthAddress] = useState("0x")
+  const [allProfiles, setAllProfiles] = useState([]);
   console.log("ethAddress", ethAddrees);
   return (
     <div id="app">
@@ -32,13 +33,13 @@ const App = () => {
           <Routes>
             <Route
               path="/lensprofile/:ethAddress"
-              exact element={<WalletProfile />}
+              exact element={<WalletProfile allProfiles={allProfiles} setAllProfiles={setAllProfiles} />}
             />
             <Route
               path="/lensprofile/:ethAddress/:id"
               exact element={<LensProfile />}
             />
-          <Route path="/" element={<Home setProfileToggle={setProfileToggle} setEthAddress={setEthAddress} />}  />
+          <Route path="/" element={<Home setProfileToggle={setProfileToggle} setEthAddress={setEthAddress} allProfiles={allProfiles} />}  />
           <Route path="/menu" element={<WhyLens/>} />
           <Route path="/profile" element={<Profile/>} />
           <Route path="/twitter" element={<Twitter/>} />
