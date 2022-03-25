@@ -1,6 +1,6 @@
 import React from "react";
 
-const TwitterHandleForm = ({ twitterHandle, setTwitterHandle, setToggle }) => {
+const TwitterHandleForm = ({ setTwitterHandle, setToggle }) => {
   return (
     <>
       <div className="h-screen bg-gray-200  dark:bg-gray-800   flex flex-wrap items-center  justify-center">
