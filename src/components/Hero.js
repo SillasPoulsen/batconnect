@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Hero = ({ setProfileToggle, setEthAddress }) => {
+const Hero = ({ setProfileToggle, setEthAddress, allProfiles}) => {
   const [currentAccount, setCurrentAccount] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
@@ -70,28 +70,35 @@ const Hero = ({ setProfileToggle, setEthAddress }) => {
   };
   checkIfWalletIsConnected();
 
+  const redirect = () => {
+    if(allProfiles.address){
+      return("/lensprofile/" + currentAccount)
+    } else {
+      return("/twitter")
+    }
+  }
   return (
     <div className="h-screen bg-violet flex flex-col justify-center items-center">
       <h1 className="lg:text-8xl md:text:8xl sm:text-5xl text-5xl text-black mb-14 animate-bounce">
         🦇 FLY TO WEB3 🦇
       </h1>
       <p>Take your twitter account to WEB3, in less than 2</p>
-      {!currentAccount && (
+      {!currentAccount ? (
         <button
           onClick={connectWallet}
           className="text-violet-600  font-mono py-6 px-10 bg-white rounded-full text-3xl hover:bg-black transition duration-300 ease-in-out flex items-center"
         >
           Connect your wallet
         </button>
-      )}
-      {currentAccount && (
+      ):(
         <Link
-          to="/about"
-          className="text-violet-600 font-mono py-6 px-10 bg-white rounded-full text-3xl hover:bg-black transition duration-300 ease-in-out flex items-center animate-bounce"
+          to={redirect()}
+          className="text-violet-600 font-mono py-6 px-10 bg-white rounded-full text-3xl hover:bg-black transition duration-300 ease-in-out flex items-center"
         >
           🦇Connected. Go to next step🦇
         </Link>
       )}
+
     </div>
   );
 };
