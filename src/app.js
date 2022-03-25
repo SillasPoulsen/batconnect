@@ -9,27 +9,19 @@ import Twitter from "./pages/twitter";
 import FollowMyFriends from "./pages/followMyFriends";
 import WalletProfile from "./pages/walletProfile";
 import LensProfile from "./pages/lensProfile";
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
+import ShareProfile from "./pages/shareProfile";
 import './app.css';
 
-const APIURL = 'https://api-mumbai.lens.dev/';
-
-  export const apolloClient = new ApolloClient({
-    uri: APIURL,
-    cache: new InMemoryCache()
-  });
 const App = () => {
   const [profileToggle, setProfileToggle] = useState(false);
   const [ethAddrees, setEthAddress] = useState("0x")
   const [allProfiles, setAllProfiles] = useState([]);
+
   console.log("ethAddress", ethAddrees);
   return (
     <div id="app">
-      
-      
-        <Router>
+      <Router>
         <NavBar profileToggle={profileToggle} ethAddress={ethAddrees} />
-        <ApolloProvider client={apolloClient}>
           <Routes>
             <Route
               path="/lensprofile/:ethAddress"
@@ -37,7 +29,8 @@ const App = () => {
             />
             <Route
               path="/lensprofile/:ethAddress/:id"
-              exact element={<LensProfile />}
+              exact
+              element={<LensProfile />}
             />
           <Route path="/" element={<Home setProfileToggle={setProfileToggle} setEthAddress={setEthAddress} allProfiles={allProfiles} />}  />
           <Route path="/menu" element={<WhyLens/>} />
@@ -53,7 +46,6 @@ const App = () => {
             exact element={<LensProfile/>}
           />
           </Routes>
-          </ApolloProvider>
           <Footer />
         </Router>
     
