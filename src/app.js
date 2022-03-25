@@ -20,16 +20,16 @@ const APIURL = 'https://api-mumbai.lens.dev/';
   });
 const App = () => {
   const [profileToggle, setProfileToggle] = useState(false);
-
+  const [ethAddrees, setEthAddress] = useState("0x")
+  console.log("ethAddress", ethAddrees);
   return (
     <div id="app">
       
       
         <Router>
-        <NavBar profileToggle={profileToggle} />
+        <NavBar profileToggle={profileToggle} ethAddress={ethAddrees} />
         <ApolloProvider client={apolloClient}>
           <Routes>
-            {/* <Route path="/" exact element={Home} />
             <Route path="/profile" element={Profile} />
             <Route
               path="/lensprofile/:ethAddress"
@@ -38,8 +38,8 @@ const App = () => {
             <Route
               path="/lensprofile/:ethAddress/:id"
               exact element={LensProfile}
-            /> */}
-          <Route path="/" element={<Home setProfileToggle={setProfileToggle} />}  />
+            />
+          <Route path="/" element={<Home setProfileToggle={setProfileToggle} setEthAddress={setEthAddress} />}  />
           <Route path="/menu" element={<WhyLens/>} />
           <Route path="/profile" element={<Profile/>} />
           <Route path="/twitter" element={<Twitter/>} />
