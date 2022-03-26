@@ -43,7 +43,11 @@ const NewLens = ({
               ← back{" "}
             </span>
             <div className="px-10 py-8">
-              <img className="h-14 mb-4 mx-auto" src={lensImage} alt="" />
+              <img
+                className="h-14 mb-4 mx-auto rounded-full"
+                src={lensImage}
+                alt=""
+              />
               <div className="space-y-4">
                 <h1 className="text-center text-2xl font-semibold text-gray-600">
                   Register
@@ -100,7 +104,9 @@ const NewLens = ({
                 setIsLoading={setIsLoading}
               />
             </div>
-            {errorMessage && <p className="error"> {errorMessage} </p>}
+            <div className="text-center text-red-600">
+              {errorMessage && <p className="error"> {errorMessage} </p>}
+            </div>
           </div>
         </form>
       </div>
@@ -124,7 +130,7 @@ const NewLens = ({
             role="status"
           ></div>
           <div>
-            <p>Loading...</p>
+            <p>Tansaction pending...</p>
           </div>
         </div>
       </>

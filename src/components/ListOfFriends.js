@@ -30,7 +30,6 @@ const ListOfFriends = ({ twitterHandle }) => {
   return (
     <>
       <div>
-        <h3>{friends}</h3>
       </div>
     </>
   );
