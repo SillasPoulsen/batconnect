@@ -4,7 +4,6 @@ import { MUMBAI_RPC_URL, PK } from './config';
 
 export const ethersProvider = new ethers.providers.JsonRpcProvider(MUMBAI_RPC_URL);
 
-
 export const signedTypeData = async (
   domain: TypedDataDomain,
   types: Record<string, TypedDataField[]>,

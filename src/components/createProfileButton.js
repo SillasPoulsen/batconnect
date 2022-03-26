@@ -5,10 +5,6 @@ const CreateProfileButton = ({lensHandle, lensImage, lensBio}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        const lensTest = "eskizo"
-        console.log(lensHandle, lensImage);
-
         createProfile(lensHandle, lensImage);
     }
 
