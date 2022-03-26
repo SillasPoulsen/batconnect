@@ -26,7 +26,7 @@ const NavBar = ({ profileToggle, ethAddress }) => {
                     : null }
                   </li>
                   <li>
-                    <Link className="p-4 hover:text-black" to="/menu">
+                    <Link className="p-4 hover:text-black" to="/whylens">
                       Why Lens
                     </Link>
                   </li>

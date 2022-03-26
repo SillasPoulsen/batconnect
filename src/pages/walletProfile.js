@@ -31,14 +31,6 @@ function WalletProfile({allProfiles, setAllProfiles}) {
       <h1 className="my-10 mt-0 font-medium text-3xl sm:text-4xl font-black">
         {ethAddress}
       </h1>
-      <div className="mb-4">
-        <button
-          className="toggle-theme btn inline-block select-none no-underline align-middle cursor-pointer whitespace-nowrap px-4 py-1.5 rounded text-base font-medium leading-6 tracking-tight text-white text-center border-0 bg-[#6911e7] hover:bg-[#590acb] duration-300"
-          type="button"
-        >
-          Dark
-        </button>
-      </div>
       <div className="user-list w-full max-w-lg mx-auto bg-white rounded-xl shadow-xl flex flex-col py-4">
         {/* <!--User row --> */}
         {allProfiles &&
