@@ -27,9 +27,9 @@ const NewLens = ({ twitterHandle, ethAddress, setIsLoading, isLoading, setToggle
       <div className="h-screen bg-slate-50 flex justify-center items-center w-full">
         <form>
           <div className="bg-white rounded-xl w-screen shadow-md max-w-sm">
-            <span className="text-gray-300 ml-2" onClick={() => { setToggle(true) }}> ← back </span>
+            <span className="text-gray-300 ml-2 cursor-pointer" onClick={() => { setToggle(true) }}> ← back </span>
             <div className="px-10 py-8">
-            <img className="h-14 mb-4 mx-auto" src={lensImage} alt="" />
+            <img className="h-14 mb-4 mx-auto rounded-full" src={lensImage} alt="" />
             <div className="space-y-4">
               <h1 className="text-center text-2xl font-semibold text-gray-600">
                 Register
