@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/navBar";
 import Home from "./pages/home";
-import Profile from "./pages/profile";
 import WhyLens from "./pages/whyLens";
 import Footer from "./components/footer";
 import Twitter from "./pages/twitter";
 import FollowMyFriends from "./pages/followMyFriends";
 import WalletProfile from "./pages/walletProfile";
 import LensProfile from "./pages/lensProfile";
-import ShareProfile from "./pages/shareProfile";
+
 import "./app.css";
 
 const App = () => {
@@ -50,7 +49,6 @@ const App = () => {
               }
             />
             <Route path="/whylens" element={<WhyLens />} />
-            <Route path="/profile" element={<Profile />} />
             <Route
               path="/twitter"
               element={<Twitter ethAddress={ethAddrees} />}
@@ -68,7 +66,10 @@ const App = () => {
               element={<Twitter ethAddress={ethAddrees} />}
             />
             <Route path="/friends" element={<FollowMyFriends />} />
-            <Route path="/lensprofile/:ethAddress" element={<WalletProfile />} />
+            <Route
+              path="/lensprofile/:ethAddress"
+              element={<WalletProfile />}
+            />
           </Routes>
           <Footer />
         </Router>
