@@ -10,14 +10,15 @@ import FollowMyFriends from "./pages/followMyFriends";
 import WalletProfile from "./pages/walletProfile";
 import LensProfile from "./pages/lensProfile";
 import ShareProfile from "./pages/shareProfile";
-import './app.css';
+import "./app.css";
 
 const App = () => {
   const [profileToggle, setProfileToggle] = useState(false);
-  const [ethAddrees, setEthAddress] = useState("0x")
+  const [ethAddrees, setEthAddress] = useState("0x");
   const [allProfiles, setAllProfiles] = useState([]);
 
-  console.log("ethAddress", ethAddrees);
+  console.log("this is the ethAddress in APP", ethAddrees);
+
   return (
     <div id="app" className="bg-purple-200">
       <Router>
@@ -25,44 +26,48 @@ const App = () => {
         <Routes>
           <Route
             path="/lensprofile/:ethAddress"
-            exact element={<WalletProfile
-                              allProfiles={allProfiles}
-                              setAllProfiles={setAllProfiles} 
-                            />}
+            exact
+            element={
+              <WalletProfile
+                allProfiles={allProfiles}
+                setAllProfiles={setAllProfiles}
+              />
+            }
           />
           <Route
             path="/lensprofile/:ethAddress/:id"
-            exact
             element={<LensProfile />}
           />
-          <Route 
-            path="/" 
+          <Route
+            path="/"
             element={
-              <Home 
+              <Home
                 setProfileToggle={setProfileToggle}
-                setEthAddress={setEthAddress} 
-                allProfiles={allProfiles} 
-              />}  
+                setEthAddress={setEthAddress}
+                allProfiles={allProfiles}
+              />
+            }
           />
-          <Route 
-            path="/whylens" 
-            element={<WhyLens/>}
-          />
-          <Route path="/profile" element={<Profile/>} />
-          <Route path="/twitter" element={<Twitter/>} />
-          <Route path="/friends" element={<FollowMyFriends/>} />
-          <Route 
-            path="/lensprofile/:ethAddress" 
-            exact element={<WalletProfile/>}
+          <Route path="/whylens" element={<WhyLens />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/twitter" element={<Twitter />} />
+          <Route path="/friends" element={<FollowMyFriends />} />
+          <Route
+            path="/lensprofile/:ethAddress"
+            exact
+            element={<WalletProfile />}
             ethAddress={ethAddrees}
           />
+          <Route path="/menu" element={<WhyLens />} />
           <Route
-            path="/lensprofile/:ethAddress/:id"
-            exact element={<LensProfile/>}
+            path="/twitter"
+            element={<Twitter ethAddress={ethAddrees} />}
           />
+          <Route path="/friends" element={<FollowMyFriends />} />
+          <Route path="/lensprofile/:ethAddress" element={<WalletProfile />} />
         </Routes>
-          <Footer />
-        </Router>
+        <Footer />
+      </Router>
     </div>
   );
 };
