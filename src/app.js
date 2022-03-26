@@ -14,6 +14,7 @@ const App = () => {
   const [profileToggle, setProfileToggle] = useState(false);
   const [ethAddrees, setEthAddress] = useState("0x");
   const [allProfiles, setAllProfiles] = useState([]);
+  const [twitterHandle, setTwitterhandle] = useState ("@you")
 
   console.log("this is the ethAddress in APP", ethAddrees);
 
@@ -47,12 +48,16 @@ const App = () => {
                 />
               }
             />
-            <Route path="/whylens" element={<WhyLens />} />
+            <Route 
+              path="/whylens" 
+              element={<WhyLens />} />
             <Route
               path="/twitter"
-              element={<Twitter ethAddress={ethAddrees} />}
+              element={<Twitter ethAddress={ethAddrees} twitterHandle={twitterHandle} setTwitterHandle={setTwitterhandle} />}
             />
-            <Route path="/friends" element={<FollowMyFriends />} />
+            <Route 
+            path="/friends" 
+            element={<FollowMyFriends twitterHandle={twitterHandle} setTwitterHandle={setTwitterhandle} />} />
             <Route path="/menu" element={<WhyLens />} />
             <Route
               path="/twitter"

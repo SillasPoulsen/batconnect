@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { profiles } from "../services/get-profiles.ts";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { FollowButton } from "../components"
@@ -43,7 +43,7 @@ function WalletProfile({ allProfiles, setAllProfiles }) {
           allProfiles.map((address, idx) => {
             return (
               <div
-                key={address.id}
+                key={address}
                 onClick={(event) => handleClick(idx, event)}
                 className="user-row flex flex-col items-center justify-between cursor-pointer  p-4 duration-300 sm:flex-row sm:py-4 sm:px-8 hover:bg-[#f6f8f9]"
               >
