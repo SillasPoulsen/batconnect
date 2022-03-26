@@ -2,9 +2,12 @@ import TwitterHandleForm from "../components/twitterHandleForm";
 import NewLens from "../components/newLens";
 import { useState } from "react";
 
-const Twitter = () => {
+const Twitter = ({ ethAddress }) => {
   const [twitterHandle, setTwitterHandle] = useState("@you");
   const [toggle, setToggle] = useState(true);
+
+  console.log("this is the ethAddress in Twitter", ethAddress);
+
   if (toggle) {
     return (
       <>
@@ -29,6 +32,7 @@ const Twitter = () => {
         <NewLens
           twitterHandle={twitterHandle}
           setTwitterHandle={setTwitterHandle}
+          ethAddress={ethAddress}
         />
       </>
     );

@@ -15,6 +15,7 @@
     "react-dom": "^16.14.0",
     "react-router-dom": "^6.2.2",
     "react-scripts": "4.0.0",
+    "react-twitter-embed": "^4.0.4",
     "tokenize": "^0.0.3"
   },
   "scripts": {

@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 import { profiles } from "../services/get-profiles.ts";
 import { useNavigate, useParams } from "react-router-dom";
 
-function WalletProfile({allProfiles, setAllProfiles}) {
+function WalletProfile({ allProfiles, setAllProfiles }) {
   const navigate = useNavigate();
-
 
   console.log(allProfiles);
 
@@ -16,7 +15,7 @@ function WalletProfile({allProfiles, setAllProfiles}) {
       setAllProfiles(response.profiles.items);
     };
     fetchData();
-  }, [allProfiles, ethAddress]);
+  }, [allProfiles, ethAddress, setAllProfiles]);
 
   function handleClick(idx, e) {
     e.preventDefault();

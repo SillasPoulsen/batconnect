@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { profiles } from "../services/get-profiles.ts";
 import { useParams } from "react-router-dom";
+import { TwitterShareButton } from "react-twitter-embed";
 
 function LensProfile() {
   const [profile, setProfile] = useState([]);
 
   let { ethAddress, id } = useParams();
-  console.log(id, ethAddress);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,6 +47,13 @@ function LensProfile() {
             <h2 class="text-gray-800 text-3xl font-bold">{profile.handle}</h2>
             <p class="text-gray-400 mt-2">{"@" + profile.handle}</p>
             <p class="mt-2 text-gray-600">{profile.bio}</p>
+            <TwitterShareButton
+              url={`http://localhost:3000/lensprofile/${ethAddress}/${id}`}
+              options={{
+                text: "I've just created a profile on Lens",
+                via: "OpenBat",
+              }}
+            />
           </div>
           <hr class="mt-6" />
           <div class="flex  bg-gray-50 ">
