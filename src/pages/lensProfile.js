@@ -3,19 +3,25 @@ import { profiles } from "../services/get-profiles.ts";
 import { useParams } from "react-router-dom";
 import { TwitterShareButton } from "react-twitter-embed";
 import { followers } from '../services/followers.ts'
+import { FollowButton } from "../components";
 
 function LensProfile() {
   const [profile, setProfile] = useState([]);
   const [amountFollowers, setAmountFollowers] = useState(0);
+  const [lensid, setLensId] = useState()
 
-  let { ethAddress, id: idx } = useParams();
+  let { ethAddress, idx } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await profiles(ethAddress);
       setProfile(response.profiles.items[idx]);
-      const test = await followers("0x0319")
-      setAmountFollowers(test.followers.items[idx].totalAmountOfTimesFollowed);
+      const id = response.profiles.items[idx].id;
+      console.log("id", response.profiles.items[idx].id);
+      const test = await followers(id)
+      console.log("test", test);
+      setLensId(id);
+      setAmountFollowers(test.followers.items.length);
     };
 
     fetchData();
@@ -58,6 +64,7 @@ function LensProfile() {
                 via: "OpenBat",
               }}
             />
+            <FollowButton ethAddress={ethAddress} id={lensid} />
           </div>
           <hr class="mt-6" />
           <div class="flex  bg-gray-50 rounded-xl ">
