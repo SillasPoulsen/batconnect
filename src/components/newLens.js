@@ -91,9 +91,9 @@ const NewLens = ({ twitterHandle, ethAddress, setIsLoading, isLoading }) => {
   } else {
     return (
       <>
-        <div>
+        <div className="h-screen  bg-slate-50 flex justify-center items-center w-full flex-col">
           <div
-            class="
+            className="
           
     spinner-border
     animate-spin
