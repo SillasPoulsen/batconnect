@@ -5,7 +5,7 @@ import { useState } from "react";
 const Twitter = ({ ethAddress }) => {
   const [twitterHandle, setTwitterHandle] = useState("@you");
   const [toggle, setToggle] = useState(true);
-
+  const [isLoading, setIsLoading] = useState(true);
   console.log("this is the ethAddress in Twitter", ethAddress);
 
   if (toggle) {
@@ -33,6 +33,8 @@ const Twitter = ({ ethAddress }) => {
           twitterHandle={twitterHandle}
           setTwitterHandle={setTwitterHandle}
           ethAddress={ethAddress}
+          isLoading={isLoading}
+          setIsLoading={setIsLoading}
         />
       </>
     );
