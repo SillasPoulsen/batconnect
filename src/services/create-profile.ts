@@ -50,8 +50,6 @@ export const createProfile = async (
 
   await login(address);
 
-  console.log(address);
-
   const createProfileResult = await createProfileRequest({
     handle: handle,
     profilePictureUri: profilePictureUri,

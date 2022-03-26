@@ -20,7 +20,7 @@ const App = () => {
   console.log("this is the ethAddress in APP", ethAddrees);
 
   return (
-    <div id="app" className="bg-red-100">
+    <div id="app" className="bg-purple-200">
       <Router>
         <NavBar profileToggle={profileToggle} ethAddress={ethAddrees} />
         <Routes>
@@ -47,6 +47,16 @@ const App = () => {
                 allProfiles={allProfiles}
               />
             }
+          />
+          <Route path="/whylens" element={<WhyLens />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/twitter" element={<Twitter />} />
+          <Route path="/friends" element={<FollowMyFriends />} />
+          <Route
+            path="/lensprofile/:ethAddress"
+            exact
+            element={<WalletProfile />}
+            ethAddress={ethAddrees}
           />
           <Route path="/menu" element={<WhyLens />} />
           <Route

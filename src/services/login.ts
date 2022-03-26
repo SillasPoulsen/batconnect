@@ -61,7 +61,6 @@ export const login = async (address : string) => {
 
   console.log("access token", accessTokens);
 
-
   setAuthenticationToken(accessTokens.data.authenticate.accessToken);
 
   return accessTokens.data;

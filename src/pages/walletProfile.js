@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { profiles } from "../services/get-profiles.ts";
 import { useNavigate, useParams } from "react-router-dom";
+import { FollowButton } from "../components"
 
 function WalletProfile({ allProfiles, setAllProfiles }) {
   const navigate = useNavigate();
@@ -30,16 +31,9 @@ function WalletProfile({ allProfiles, setAllProfiles }) {
       <h1 className="my-10 mt-0 font-medium text-3xl sm:text-4xl font-black">
         {ethAddress}
       </h1>
-      <div className="mb-4">
-        <button
-          className="toggle-theme btn inline-block select-none no-underline align-middle cursor-pointer whitespace-nowrap px-4 py-1.5 rounded text-base font-medium leading-6 tracking-tight text-white text-center border-0 bg-[#6911e7] hover:bg-[#590acb] duration-300"
-          type="button"
-        >
-          Dark
-        </button>
-      </div>
       <div className="user-list w-full max-w-lg mx-auto bg-white rounded-xl shadow-xl flex flex-col py-4">
         {/* <!--User row --> */}
+        {console.log(allProfiles)}
         {allProfiles &&
           allProfiles.map((address, idx) => {
             return (
@@ -73,13 +67,7 @@ function WalletProfile({ allProfiles, setAllProfiles }) {
                     </a>
                   </div>
                 </div>
-                {/* <!--Button content --> */}
-                <div className="user-option mx-auto sm:ml-auto sm:mr-0">
-                  <button className="h-10 px-5 m-2 text-purple-100 transition-colors duration-150 bg-purple-600 rounded-lg focus:shadow-outline hover:bg-purple-700">
-                    Follow
-                  </button>
-                </div>
-                {/* <!--Close Button content --> */}
+                <FollowButton ethAddress={ethAddress}/>
               </div>
             );
           })}

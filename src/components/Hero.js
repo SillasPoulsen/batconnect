@@ -82,20 +82,20 @@ const Hero = ({ setProfileToggle, setEthAddress, allProfiles}) => {
       <h1 className="lg:text-8xl md:text:8xl sm:text-5xl text-5xl text-black mb-14 animate-bounce">
         🦇 FLY TO WEB3 🦇
       </h1>
-      <p>Take your twitter account to WEB3, in less than 2</p>
+      <p className="mb-2">Take your twitter account to WEB3, in less than 2 minutes</p>
       {!currentAccount ? (
         <button
           onClick={connectWallet}
-          className="text-violet-600  font-mono py-6 px-10 bg-white rounded-full text-3xl hover:bg-black transition duration-300 ease-in-out flex items-center"
+          className="text-gray-100 font-mono py-6 px-10 shadow-xl bg-purple-800 rounded-full text-3xl hover:bg-purple-900 transition duration-300 ease-in-out flex items-center"
         >
           Connect your wallet
         </button>
       ):(
-        <Link
+        <Link 
           to={redirect()}
-          className="text-violet-600 font-mono py-6 px-10 bg-white rounded-full text-3xl hover:bg-black transition duration-300 ease-in-out flex items-center"
+          className="text-gray-100 font-mono py-6 px-10 shadow-xl bg-purple-800 rounded-full text-3xl hover:bg-purple-900 transition duration-300 ease-in-out flex items-center; hover:text-black"
         >
-          🦇Connected. Go to next step🦇
+         🧛🏽 Connected ➡
         </Link>
       )}
 
