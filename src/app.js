@@ -19,21 +19,35 @@ const App = () => {
 
   console.log("ethAddress", ethAddrees);
   return (
-    <div id="app">
+    <div id="app" className="bg-red-100">
       <Router>
         <NavBar profileToggle={profileToggle} ethAddress={ethAddrees} />
-          <Routes>
-            <Route
-              path="/lensprofile/:ethAddress"
-              exact element={<WalletProfile allProfiles={allProfiles} setAllProfiles={setAllProfiles} />}
-            />
-            <Route
-              path="/lensprofile/:ethAddress/:id"
-              exact
-              element={<LensProfile />}
-            />
-          <Route path="/" element={<Home setProfileToggle={setProfileToggle} setEthAddress={setEthAddress} allProfiles={allProfiles} />}  />
-          <Route path="/menu" element={<WhyLens/>} />
+        <Routes>
+          <Route
+            path="/lensprofile/:ethAddress"
+            exact element={<WalletProfile
+                              allProfiles={allProfiles}
+                              setAllProfiles={setAllProfiles} 
+                            />}
+          />
+          <Route
+            path="/lensprofile/:ethAddress/:id"
+            exact
+            element={<LensProfile />}
+          />
+          <Route 
+            path="/" 
+            element={
+              <Home 
+                setProfileToggle={setProfileToggle}
+                setEthAddress={setEthAddress} 
+                allProfiles={allProfiles} 
+              />}  
+          />
+          <Route 
+            path="/menu" 
+            element={<WhyLens/>}
+          />
           <Route path="/profile" element={<Profile/>} />
           <Route path="/twitter" element={<Twitter/>} />
           <Route path="/friends" element={<FollowMyFriends/>} />
@@ -41,15 +55,13 @@ const App = () => {
             path="/lensprofile/:ethAddress" 
             exact element={<WalletProfile/>}
           />
-          <Route 
-            path="/lensprofile/:ethAddress/:id" 
+          <Route
+            path="/lensprofile/:ethAddress/:id"
             exact element={<LensProfile/>}
           />
-          </Routes>
+        </Routes>
           <Footer />
         </Router>
-    
-     
     </div>
   );
 };
