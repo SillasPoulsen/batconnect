@@ -9,24 +9,24 @@ const Twitter = ({ ethAddress }) => {
 
   return (
     <>
-      { toggle ? (
-          <TwitterHandleForm
-            twitterHandle={twitterHandle}
-            setTwitterHandle={setTwitterHandle}
-            setToggle={setToggle}
-          />
-        ):(
-          <NewLens
-            twitterHandle={twitterHandle}
-            setTwitterHandle={setTwitterHandle}
-            isLoading={isLoading}
-            setIsLoading={setIsLoading}
-            setToggle={setToggle}
-          />
-      )
-      }
+      {toggle ? (
+        <TwitterHandleForm
+          twitterHandle={twitterHandle}
+          setTwitterHandle={setTwitterHandle}
+          setToggle={setToggle}
+        />
+      ) : (
+        <NewLens
+          twitterHandle={twitterHandle}
+          setTwitterHandle={setTwitterHandle}
+          isLoading={isLoading}
+          setIsLoading={setIsLoading}
+          setToggle={setToggle}
+          ethAddress={ethAddress}
+        />
+      )}
     </>
-  )
+  );
 };
 
 export default Twitter;
