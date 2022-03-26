@@ -104,7 +104,7 @@ const followersRequest = (profileId: string) => {
 
   export const followers = async (profileId: string) => {
     if (!profileId) {
-      throw new Error('Must define PROFILE_ID in the .env to run this');
+      throw new Error('YOU NEED TO SET A PROFILE');
     }
   
     const result = await followersRequest(profileId);
