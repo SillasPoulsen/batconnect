@@ -1,9 +1,58 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
+import { ethers } from "ethers";
+import { ApolloClient, ApolloProvider, InMemoryCache, useQuery, gql } from '@apollo/client'
 
-const Hero = ({ setProfileToggle, setEthAddress, allProfiles }) => {
+
+const QUERY_PROFILE = gql`
+  	query($request: ProfileQueryRequest!) {
+    profiles(request: $request) {
+      items {
+        id
+        name
+        bio
+        location
+        website
+        twitterUrl
+		handle
+		stats {
+			totalFollowers
+			totalFollowing
+			totalPosts
+			totalComments
+			totalMirrors
+			totalPublications
+			totalCollects
+		  }
+		  picture {
+			... on MediaSet {
+			  original {
+				url
+			  }
+			}
+		  }
+  }
+  }
+  }
+`;
+
+
+
+
+
+const Hero = ({ setProfileToggle, setEthAddress, allProfiles, request }) => {
   const [currentAccount, setCurrentAccount] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const [lens, setLens] = useState(false);
+ const { loading, error, data } = useQuery(QUERY_PROFILE, {
+  variables: { request },
+  });
+
+  useEffect(() => {
+    if(data && data.profiles.items.length != 0) {
+      setLens(true);
+    }
+  }, [data])
 
   useEffect(() => {
     const hideMenu = () => {
@@ -71,7 +120,7 @@ const Hero = ({ setProfileToggle, setEthAddress, allProfiles }) => {
   checkIfWalletIsConnected();
 
   const redirect = () => {
-    if (allProfiles.address) {
+    if (lens) {
       return "/lensprofile/" + currentAccount;
     } else {
       return "/twitter";
@@ -79,7 +128,7 @@ const Hero = ({ setProfileToggle, setEthAddress, allProfiles }) => {
   };
   return (
     <div className="h-screen flex flex-col justify-center items-center ">
-      <h1 className="lg:text-8xl md:text:8xl sm:text-5xl text-5xl text-black mb-14 animate-bounce my-10 mt-0 font-medium text-3xl sm:text-4xl font-black></div>">
+      <h1 className="lg:text-8xl md:text:8xl sm:text-5xl text-5xl text-black mb-14 animate-bounce my-10 mt-0 font-medium font-black></div>">
         🦇 FLY TO WEB3 🦇
       </h1>
       <p className="mb-2">
