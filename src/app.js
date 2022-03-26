@@ -20,57 +20,59 @@ const App = () => {
   console.log("this is the ethAddress in APP", ethAddrees);
 
   return (
-    <div id="app" className="bg-purple-200">
-      <Router>
-        <NavBar profileToggle={profileToggle} ethAddress={ethAddrees} />
-        <Routes>
-          <Route
-            path="/lensprofile/:ethAddress"
-            exact
-            element={
-              <WalletProfile
-                allProfiles={allProfiles}
-                setAllProfiles={setAllProfiles}
-              />
-            }
-          />
-          <Route
-            path="/lensprofile/:ethAddress/:id"
-            element={<LensProfile ethAddress={ethAddrees} />}
-          />
-          <Route
-            path="/"
-            element={
-              <Home
-                setProfileToggle={setProfileToggle}
-                setEthAddress={setEthAddress}
-                allProfiles={allProfiles}
-              />
-            }
-          />
-          <Route path="/whylens" element={<WhyLens />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route
-            path="/twitter"
-            element={<Twitter ethAddress={ethAddrees} />}
-          />
-          <Route path="/friends" element={<FollowMyFriends />} />
-          <Route
-            path="/lensprofile/:ethAddress"
-            exact
-            element={<WalletProfile />}
-            ethAddress={ethAddrees}
-          />
-          <Route path="/menu" element={<WhyLens />} />
-          <Route
-            path="/twitter"
-            element={<Twitter ethAddress={ethAddrees} />}
-          />
-          <Route path="/friends" element={<FollowMyFriends />} />
-          <Route path="/lensprofile/:ethAddress" element={<WalletProfile />} />
-        </Routes>
-        <Footer />
-      </Router>
+    <div className="max-h-screen">
+      <div id="app" className="bg-purple-200">
+        <Router>
+          <NavBar profileToggle={profileToggle} ethAddress={ethAddrees} />
+          <Routes>
+            <Route
+              path="/lensprofile/:ethAddress"
+              exact
+              element={
+                <WalletProfile
+                  allProfiles={allProfiles}
+                  setAllProfiles={setAllProfiles}
+                />
+              }
+            />
+            <Route
+              path="/lensprofile/:ethAddress/:id"
+              element={<LensProfile ethAddress={ethAddrees} />}
+            />
+            <Route
+              path="/"
+              element={
+                <Home
+                  setProfileToggle={setProfileToggle}
+                  setEthAddress={setEthAddress}
+                  allProfiles={allProfiles}
+                />
+              }
+            />
+            <Route path="/whylens" element={<WhyLens />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route
+              path="/twitter"
+              element={<Twitter ethAddress={ethAddrees} />}
+            />
+            <Route path="/friends" element={<FollowMyFriends />} />
+            <Route
+              path="/lensprofile/:ethAddress"
+              exact
+              element={<WalletProfile />}
+              ethAddress={ethAddrees}
+            />
+            <Route path="/menu" element={<WhyLens />} />
+            <Route
+              path="/twitter"
+              element={<Twitter ethAddress={ethAddrees} />}
+            />
+            <Route path="/friends" element={<FollowMyFriends />} />
+            <Route path="/lensprofile/:ethAddress" element={<WalletProfile />} />
+          </Routes>
+          <Footer />
+        </Router>
+      </div>
     </div>
   );
 };

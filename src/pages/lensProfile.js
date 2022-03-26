@@ -6,20 +6,20 @@ import { followers } from '../services/followers.ts'
 
 function LensProfile() {
   const [profile, setProfile] = useState([]);
-  const [amountFollowers, setnAmountFollowers] = useState(0);
+  const [amountFollowers, setAmountFollowers] = useState(0);
 
-  let { ethAddress, id } = useParams();
+  let { ethAddress, id: idx } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await profiles(ethAddress);
-      setProfile(response.profiles.items[id]);
+      setProfile(response.profiles.items[idx]);
       const test = await followers("0x0319")
-      console.log(test);
+      setAmountFollowers(test.followers.items[idx].totalAmountOfTimesFollowed);
     };
 
     fetchData();
-  }, [ethAddress, id]);
+  }, [ethAddress, idx]);
 
   return (
     <div class="h-screen flex flex-wrap items-center  justify-center ">
@@ -52,7 +52,7 @@ function LensProfile() {
             <p class="text-gray-400 mt-2">{"@" + profile.handle}</p>
             <p class="mt-2 text-gray-600">{profile.bio}</p>
             <TwitterShareButton
-              url={`http://localhost:3000/lensprofile/${ethAddress}/${id}`}
+              url={`http://localhost:3000/lensprofile/${ethAddress}/${idx}`}
               options={{
                 text: "I've just created a profile on Lens",
                 via: "OpenBat",
@@ -63,7 +63,7 @@ function LensProfile() {
           <div class="flex  bg-gray-50 rounded-xl ">
             <div class="text-center w-1/2 p-4 hover:bg-gray-100 cursor-pointer rounded-xl">
               <p>
-                <span class="font-semibold">0 </span> Followers
+                <span class="font-semibold">{amountFollowers}</span> Followers
               </p>
             </div>
             <div class="border"></div>

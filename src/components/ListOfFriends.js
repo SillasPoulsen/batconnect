@@ -12,10 +12,11 @@ const ListOfFriends = ({ twitterHandle }) => {
         setFriends(res.data.friends);
       });
   }, [twitterHandle]);
+  
   return (
     <>
       <div>
-        <h3>{friends[1].screenName}</h3>
+        <h3>{friends[0].screenName}</h3>
       </div>
     </>
   );
