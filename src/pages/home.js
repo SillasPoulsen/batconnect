@@ -55,9 +55,9 @@ const Home = ({setProfileToggle, setEthAddress, allProfiles}) => {
 
 
   return (
-    <>
-      <Hero setProfileToggle={setProfileToggle} setEthAddress={setEthAddress} allProfiles={allProfiles} request={request}/>
-    </>
+    <ApolloProvider client={client}>
+      <Hero setProfileToggle={setProfileToggle} setEthAddress={setEthAddress} allProfiles={allProfiles} request={request} currentAccount={currentAccount}/>
+    </ApolloProvider>
   );
 };
 

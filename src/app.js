@@ -71,9 +71,6 @@ const App = () => {
               path="/twitter"
               element={<Twitter ethAddress={ethAddrees} />}
             />
-            <Route 
-              path="/friends" 
-              element={<FollowMyFriends />} />
             <Route
               path="/lensprofile/:ethAddress"
               element={<WalletProfile />}
