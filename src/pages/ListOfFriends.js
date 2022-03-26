@@ -1,17 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { profilesByHandler } from "../services/get-profiles-by-handle.ts";
 import axios from "axios";
 import { FollowButton } from "../components"
 
 const ListOfFriends = ({ twitterHandle, ethAddress }) => {
   let [allProfiles, setAllProfiles] = useState([]);
-
-  // const handleGetProfilesByHandler = () => {
-  //   const profiles = profilesByHandler(twitterHandle);
-
-  // }
 
   useEffect(() => {
     console.log(twitterHandle);
@@ -44,16 +38,15 @@ const ListOfFriends = ({ twitterHandle, ethAddress }) => {
             <div className="h-screen  bg-slate-50 flex justify-center items-center w-full flex-col">
               <div
                 className="
-              
-        spinner-border
-        animate-spin
-        inline-block
-        w-32
-        h-32
-        border-16
-        rounded-full
-        text-purple-500
-      "
+                  spinner-border
+                  animate-spin
+                  inline-block
+                  w-32
+                  h-32
+                  border-16
+                  rounded-full
+                  text-purple-500
+                "
                 role="status"
               ></div>
               <div>

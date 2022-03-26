@@ -72,7 +72,6 @@ function WalletProfile({ allProfiles, setAllProfiles }) {
                     </a>
                   </div>
                 </div>
-                {address.id}
                 <FollowButton ethAddress={ethAddress} id={address.id}/>
               </div>
             );}))}
