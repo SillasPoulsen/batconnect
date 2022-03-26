@@ -3,7 +3,7 @@ import React from "react";
 const TwitterHandleForm = ({ setTwitterHandle, setToggle }) => {
   return (
     <>
-      <div className="h-screen bg-gray-200  dark:bg-gray-800   flex flex-wrap items-center  justify-center">
+      <div className="h-screen dark:bg-gray-800   flex flex-wrap items-center  justify-center">
         <form className="m-4 flex" onSubmit={() => setToggle(false)}>
           <input
             className="rounded-l-lg p-4 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
