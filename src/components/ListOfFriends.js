@@ -16,7 +16,6 @@ const ListOfFriends = ({ twitterHandle }) => {
   return (
     <>
       <div>
-        <h3>{friends[0].screenName}</h3>
       </div>
     </>
   );
