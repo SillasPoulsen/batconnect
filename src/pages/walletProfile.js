@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { profiles } from "../services/get-profiles.ts";
 import { useNavigate, useParams } from "react-router-dom";
+import { FollowButton } from "../components"
 
 function WalletProfile({allProfiles, setAllProfiles}) {
   const navigate = useNavigate();
@@ -74,13 +75,7 @@ function WalletProfile({allProfiles, setAllProfiles}) {
                     </a>
                   </div>
                 </div>
-                {/* <!--Button content --> */}
-                <div className="user-option mx-auto sm:ml-auto sm:mr-0">
-                  <button className="h-10 px-5 m-2 text-purple-100 transition-colors duration-150 bg-purple-600 rounded-lg focus:shadow-outline hover:bg-purple-700">
-                    Follow
-                  </button>
-                </div>
-                {/* <!--Close Button content --> */}
+                <FollowButton ethAddress={ethAddress}/>
               </div>
             );
           })}

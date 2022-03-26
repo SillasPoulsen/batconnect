@@ -46,8 +46,6 @@ export const createProfile = async (handle: string, profilePictureUri?: string, 
   console.log('create profile: address', address);
 
   await login(address);
-
-  console.log(address);
   
 
   const createProfileResult = await createProfileRequest({

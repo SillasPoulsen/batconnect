@@ -54,6 +54,7 @@ const App = () => {
           <Route 
             path="/lensprofile/:ethAddress" 
             exact element={<WalletProfile/>}
+            ethAddress={ethAddrees}
           />
           <Route
             path="/lensprofile/:ethAddress/:id"

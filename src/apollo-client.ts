@@ -23,8 +23,6 @@ import {
       },
     });
     
-    console.log(operation);
-    
     return forward(operation);
   });
   
