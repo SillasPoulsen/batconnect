@@ -57,7 +57,7 @@ const App = () => {
             />
             <Route 
               path="/friends" 
-              element={<FollowMyFriends twitterHandle={twitterHandle} setTwitterHandle={setTwitterhandle} />} />
+              element={<FollowMyFriends twitterHandle={twitterHandle} setTwitterHandle={setTwitterhandle} ethAddress={ethAddrees} />} />
             <Route
               path="/lensprofile/:ethAddress"
               exact
@@ -69,7 +69,6 @@ const App = () => {
               path="/twitter"
               element={<Twitter ethAddress={ethAddrees} />}
             />
-            <Route path="/friends" element={<FollowMyFriends />} />
             <Route
               path="/lensprofile/:ethAddress"
               element={<WalletProfile />}

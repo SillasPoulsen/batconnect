@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { profilesByHandler } from "../services/get-profiles-by-handle.ts";
 import axios from "axios";
+import { FollowButton } from "../components"
 
-
-const ListOfFriends = ({ twitterHandle }) => {
+const ListOfFriends = ({ twitterHandle, ethAddress }) => {
   let [allProfiles, setAllProfiles] = useState([]);
 
   // const handleGetProfilesByHandler = () => {
@@ -77,6 +77,7 @@ const ListOfFriends = ({ twitterHandle }) => {
                     </a>
                   </div>
                 </div>
+                <FollowButton ethAddress={ethAddress} id={address.id}/>
               </div>
             );}))}
         </div>
