@@ -78,28 +78,29 @@ const Hero = ({ setProfileToggle, setEthAddress, allProfiles}) => {
     }
   }
   return (
-    <div className="h-screen bg-violet flex flex-col justify-center items-center">
-      <h1 className="lg:text-8xl md:text:8xl sm:text-5xl text-5xl text-black mb-14 animate-bounce">
-        🦇 FLY TO WEB3 🦇
-      </h1>
-      <p className="mb-2">Take your twitter account to WEB3, in less than 2 minutes</p>
-      {!currentAccount ? (
-        <button
-          onClick={connectWallet}
-          className="text-gray-100 font-mono py-6 px-10 shadow-xl bg-purple-800 rounded-full text-3xl hover:bg-purple-900 transition duration-300 ease-in-out flex items-center"
-        >
-          Connect your wallet
-        </button>
-      ):(
-        <Link 
-          to={redirect()}
-          className="text-gray-100 font-mono py-6 px-10 shadow-xl bg-purple-800 rounded-full text-3xl hover:bg-purple-900 transition duration-300 ease-in-out flex items-center; hover:text-black"
-        >
-         🧛🏽 Connected ➡
-        </Link>
-      )}
-
-    </div>
+    <div className="h-screen flex flex-col justify-center items-center ">
+    <h1 className="lg:text-8xl md:text:8xl sm:text-5xl text-5xl text-black mb-14 animate-bounce my-10 mt-0 font-medium font-black></div>">
+      🦇 FLY TO WEB3 🦇
+    </h1>
+    <p className="mb-5 text-3xl">
+      Move your twitter to WEB3 in ⚡️
+    </p>
+    {!currentAccount ? (
+      <button
+        onClick={connectWallet}
+        className="text-gray-100 font-mono py-6 px-10 shadow-xl bg-purple-800 rounded-full text-3xl hover:bg-purple-900 transition duration-300 ease-in-out flex items-center"
+      >
+        Connect your wallet
+      </button>
+    ) : (
+      <Link
+        to={redirect()}
+        className="text-gray-100 font-mono py-6 px-10 shadow-xl bg-purple-800 rounded-full text-3xl hover:bg-purple-900 transition duration-300 ease-in-out flex items-center; hover:text-black "
+      >
+        🧛🏽 Connected ➡
+      </Link>
+    )}
+  </div>
   );
 };
 

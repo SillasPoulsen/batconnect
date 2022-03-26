@@ -34,11 +34,26 @@ function WalletProfile({ allProfiles, setAllProfiles }) {
       <div className="user-list w-full max-w-lg mx-auto bg-white rounded-xl shadow-xl flex flex-col py-4">
         {/* <!--User row --> */}
         { (allProfiles && allProfiles.length === 0) ? (
-            <Link 
-              to="/twitter"
-              className="text-gray-100 font-mono py-6 px-10 shadow-xl bg-purple-800 rounded-full mx-10 text-3xl justify-center hover:bg-purple-900 transition duration-300 ease-in-out flex items-center; hover:text-black"
-            >
-            No profile 😭 ➡</Link>
+             <>
+             <div className="h-screen  bg-slate-50 flex justify-center items-center w-full flex-col">
+               <div
+                 className="
+                  spinner-border
+                  animate-spin
+                  inline-block
+                  w-32
+                  h-32
+                  border-16
+                  rounded-full
+                  text-purple-500
+                "
+                 role="status"
+               ></div>
+               <div>
+                 <p>Searching profiles...</p>
+               </div>
+             </div>
+           </>
         ) : (
           allProfiles.map((address, idx) => {
             return (
