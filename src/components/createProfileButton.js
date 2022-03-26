@@ -30,7 +30,7 @@ const CreateProfileButton = ({
 
   return (
     <button
-      className="mt-4 w-full bg-purple-500 font-semibold py-2 rounded-md  tracking-wide"
+      className="mt-4 w-full bg-purple-500 font-semibold py-2 rounded-md  rounded-full bg-purple-800 text-white  hover:text-black ; hover:text-black hover:bg-purple-900"
       onClick={(e) => handleSubmit(e)}
     >
       Mint my Lens Profile

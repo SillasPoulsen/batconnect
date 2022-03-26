@@ -1,10 +1,10 @@
 import React from 'react';
 import { follow } from '../services/follow'
 
-const FollowButton = ({ ethAddress }) => {
+const FollowButton = ({ ethAddress, id }) => {
 
     const handleFollow = () => {
-        const profileId = "0x012b"
+        const profileId = id;
     
         follow(profileId, ethAddress)
     }

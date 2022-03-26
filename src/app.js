@@ -8,7 +8,6 @@ import Twitter from "./pages/twitter";
 import FollowMyFriends from "./pages/followMyFriends";
 import WalletProfile from "./pages/walletProfile";
 import LensProfile from "./pages/lensProfile";
-import ShareProfile from "./pages/shareProfile";
 import "./app.css";
 
 const App = () => {
@@ -35,7 +34,7 @@ const App = () => {
               }
             />
             <Route
-              path="/lensprofile/:ethAddress/:id"
+              path="/lensprofile/:ethAddress/:idx"
               element={<LensProfile ethAddress={ethAddrees} />}
             />
             <Route
@@ -66,7 +65,10 @@ const App = () => {
               element={<Twitter ethAddress={ethAddrees} />}
             />
             <Route path="/friends" element={<FollowMyFriends />} />
-            <Route path="/lensprofile/:ethAddress" element={<WalletProfile />} />
+            <Route
+              path="/lensprofile/:ethAddress"
+              element={<WalletProfile />}
+            />
           </Routes>
           <Footer />
         </Router>
