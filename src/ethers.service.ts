@@ -1,6 +1,7 @@
 import { TypedDataDomain, TypedDataField } from '@ethersproject/abstract-signer';
 import { ethers, utils, Wallet } from 'ethers';
 import { MUMBAI_RPC_URL, PK } from './config';
+var omitDeep = require('omit-deep');
 
 export const ethersProvider = new ethers.providers.JsonRpcProvider(MUMBAI_RPC_URL);
 
@@ -16,9 +17,9 @@ export const signedTypeData = async (
   const provider = new ethers.providers.Web3Provider(window.ethereum)
   const signer = provider.getSigner();
   return signer._signTypedData(
-    domain,
-    types,
-    value
+    omitDeep(domain, '__typename'),
+    omitDeep(types, '__typename'),
+    omitDeep(value, '__typename')
   );
 };
 
