@@ -19,7 +19,7 @@ const App = () => {
 
   console.log("ethAddress", ethAddrees);
   return (
-    <div id="app" className="bg-red-100">
+    <div id="app" className="bg-purple-200">
       <Router>
         <NavBar profileToggle={profileToggle} ethAddress={ethAddrees} />
         <Routes>
@@ -45,7 +45,7 @@ const App = () => {
               />}  
           />
           <Route 
-            path="/menu" 
+            path="/whylens" 
             element={<WhyLens/>}
           />
           <Route path="/profile" element={<Profile/>} />

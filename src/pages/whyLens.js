@@ -5,18 +5,18 @@ const WhyLens = () => {
     <>
       <img
         src="https://files.readme.io/c2459de-illustration_grow.svg"
-        className="mx-auto"
+        className="mx-auto mt-6"
         alt="lenslogo"
       />
       <div className="bg-slate-500 flex justify-center">
-        <div className="bg-clip-text text-transparent bg-gradient-to-r from-green-300 to-green-500 max-w-lg my-50px">
+        <div className="bg-clip-text bg-gradient-to-r from-black-300 to-black-500 max-w-lg my-6">
           <p>
             Lens Protocol seeks to solve major issues in existing social media
             networks. Namely, Web2 networks all read from their unique,
             centralized database. There is no portability. Your profile,
             friends, and content are locked to a specific network and owned by
             the network operator. This causes each network to fight a zero-sum
-            game for your attention.<br></br>
+            game for your attention.<br/><br/>
             Lens Protocol corrects this by being a user-owned, open social graph
             that any application can plug into. Since users own their data, they
             can bring it to any application built on top of Lens Protocol. As
