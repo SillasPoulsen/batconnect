@@ -64,7 +64,9 @@ const App = () => {
               element={<WalletProfile />}
               ethAddress={ethAddrees}
             />
-            <Route path="/menu" element={<WhyLens />} />
+            <Route 
+              path="/menu" 
+              element={<WhyLens />} />
             <Route
               path="/twitter"
               element={<Twitter ethAddress={ethAddrees} />}

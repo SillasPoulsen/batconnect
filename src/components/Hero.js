@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Hero = ({ setProfileToggle, setEthAddress, allProfiles }) => {
+const Hero = ({ setProfileToggle, setEthAddress, allProfiles}) => {
   const [currentAccount, setCurrentAccount] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
@@ -71,20 +71,18 @@ const Hero = ({ setProfileToggle, setEthAddress, allProfiles }) => {
   checkIfWalletIsConnected();
 
   const redirect = () => {
-    if (allProfiles.address) {
-      return "/lensprofile/" + currentAccount;
+    if(allProfiles.address){
+      return("/lensprofile/" + currentAccount)
     } else {
-      return "/twitter";
+      return("/twitter")
     }
-  };
+  }
   return (
-    <div className="h-screen flex flex-col justify-center items-center ">
-      <h1 className="lg:text-8xl md:text:8xl sm:text-5xl text-5xl text-black mb-14 animate-bounce my-10 mt-0 font-medium text-3xl sm:text-4xl font-black></div>">
+    <div className="h-screen bg-violet flex flex-col justify-center items-center">
+      <h1 className="lg:text-8xl md:text:8xl sm:text-5xl text-5xl text-black mb-14 animate-bounce">
         🦇 FLY TO WEB3 🦇
       </h1>
-      <p className="mb-2">
-        Take your twitter account to WEB3, in less than 2 minutes
-      </p>
+      <p className="mb-2">Take your twitter account to WEB3, in less than 2 minutes</p>
       {!currentAccount ? (
         <button
           onClick={connectWallet}
@@ -92,14 +90,15 @@ const Hero = ({ setProfileToggle, setEthAddress, allProfiles }) => {
         >
           Connect your wallet
         </button>
-      ) : (
-        <Link
+      ):(
+        <Link 
           to={redirect()}
-          className="text-gray-100 font-mono py-6 px-10 shadow-xl bg-purple-800 rounded-full text-3xl hover:bg-purple-900 transition duration-300 ease-in-out flex items-center; hover:text-black "
+          className="text-gray-100 font-mono py-6 px-10 shadow-xl bg-purple-800 rounded-full text-3xl hover:bg-purple-900 transition duration-300 ease-in-out flex items-center; hover:text-black"
         >
-          🧛🏽 Connected ➡
+         🧛🏽 Connected ➡
         </Link>
       )}
+
     </div>
   );
 };
