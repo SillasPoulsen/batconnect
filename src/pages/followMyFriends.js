@@ -19,15 +19,20 @@ const FollowMyFriends = ({twitterHandle, setTwitterHandle}) => {
   } else {
     return (
       <>
-        <button
-          className="bg-purple-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          onClick={() => {
-            setToggle(true);
-          }}
-        >
-          back
-        </button>
+        <div className="bg-white rounded-xl w-screen shadow-md max-w-sm">
+            <span
+              className="text-gray-300 ml-2"
+              onClick={() => {
+                setToggle(true);
+              }}
+            >
+              {" "}
+              ← back{" "}
+            </span>
+            <div className="px-10 py-8">
         <ListOfFriends twitterHandle={twitterHandle} />
+        </div>
+        </div>
       </>
     );
   }
