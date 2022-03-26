@@ -78,7 +78,7 @@ const Hero = ({ setProfileToggle, setEthAddress, allProfiles }) => {
     }
   };
   return (
-    <div className="h-screen bg-violet flex flex-col justify-center items-center">
+    <div className="h-screen flex flex-col justify-center items-center ">
       <h1 className="lg:text-8xl md:text:8xl sm:text-5xl text-5xl text-black mb-14 animate-bounce my-10 mt-0 font-medium text-3xl sm:text-4xl font-black></div>">
         🦇 FLY TO WEB3 🦇
       </h1>
