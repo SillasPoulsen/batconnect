@@ -19,20 +19,7 @@ const FollowMyFriends = ({twitterHandle, setTwitterHandle}) => {
   } else {
     return (
       <>
-        <div className="bg-white rounded-xl w-screen shadow-md max-w-sm">
-            <span
-              className="text-gray-300 ml-2"
-              onClick={() => {
-                setToggle(true);
-              }}
-            >
-              {" "}
-              ← back{" "}
-            </span>
-            <div className="px-10 py-8">
         <ListOfFriends twitterHandle={twitterHandle} />
-        </div>
-        </div>
       </>
     );
   }
