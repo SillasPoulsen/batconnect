@@ -36,7 +36,7 @@ const App = () => {
           />
           <Route
             path="/lensprofile/:ethAddress/:id"
-            element={<LensProfile />}
+            element={<LensProfile ethAddress={ethAddrees} />}
           />
           <Route
             path="/"
@@ -50,7 +50,10 @@ const App = () => {
           />
           <Route path="/whylens" element={<WhyLens />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/twitter" element={<Twitter />} />
+          <Route
+            path="/twitter"
+            element={<Twitter ethAddress={ethAddrees} />}
+          />
           <Route path="/friends" element={<FollowMyFriends />} />
           <Route
             path="/lensprofile/:ethAddress"

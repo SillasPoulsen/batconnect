@@ -8,16 +8,19 @@ const CreateProfileButton = ({
   lensBio,
   ethAddress,
   setErrorMessage,
+  setIsLoading,
 }) => {
   const navigate = useNavigate();
 
   console.log("this is the ethAdress in CreateProfileButton", ethAddress);
   const handleSubmit = async (e) => {
     try {
+      setIsLoading(true);
       e.preventDefault();
       await createProfile(lensHandle, lensImage);
       navigate(`/lensprofile/${ethAddress}/0`);
     } catch (error) {
+      setIsLoading(false);
       setErrorMessage(
         "Something went wrong, maybe the handle has already been taken"
       );
