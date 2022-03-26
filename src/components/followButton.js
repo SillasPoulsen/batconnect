@@ -4,7 +4,7 @@ import { follow } from '../services/follow'
 const FollowButton = ({ ethAddress }) => {
 
     const handleFollow = () => {
-        const profileId = "0x0319"
+        const profileId = "0x012b"
     
         follow(profileId, ethAddress)
     }

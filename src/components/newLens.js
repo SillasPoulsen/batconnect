@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import CreateProfileButton from "./createProfileButton";
 
-const NewLens = ({ twitterHandle, ethAddress, setIsLoading, isLoading }) => {
+const NewLens = ({ twitterHandle, ethAddress, setIsLoading, isLoading, setToggle}) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [lensBio, setLensBio] = useState("Bio");
   const [lensHandle, setLensHandle] = useState(twitterHandle);
@@ -26,7 +26,9 @@ const NewLens = ({ twitterHandle, ethAddress, setIsLoading, isLoading }) => {
     return (
       <div className="h-screen bg-slate-50 flex justify-center items-center w-full">
         <form>
-          <div className="bg-white px-10 py-8 rounded-xl w-screen shadow-md max-w-sm">
+          <div className="bg-white rounded-xl w-screen shadow-md max-w-sm">
+            <span className="text-gray-300 ml-2" onClick={() => { setToggle(true) }}> ← back </span>
+            <div className="px-10 py-8">
             <img className="h-14 mb-4 mx-auto" src={lensImage} alt="" />
             <div className="space-y-4">
               <h1 className="text-center text-2xl font-semibold text-gray-600">
@@ -85,6 +87,7 @@ const NewLens = ({ twitterHandle, ethAddress, setIsLoading, isLoading }) => {
             />
           </div>
           {errorMessage && <p className="error"> {errorMessage} </p>}
+          </div>
         </form>
       </div>
     );

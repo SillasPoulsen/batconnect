@@ -8,7 +8,7 @@ const Footer = ({ ...otherProps }) => {
           Built in a cave under{" "}
           <a
             href="https://www.42lisboa.com/en/"
-            className="text-base font-medium hover:text-black"
+            className="text-gray-100 font-medium"
           >
             42 Lisboa
           </a>
@@ -17,7 +17,7 @@ const Footer = ({ ...otherProps }) => {
       <div className="w-full max-w-7xl mx-auto">
         <a
           href="https://github.com/SillasPoulsen/batconnect"
-          className="text-base font-medium hover:text-black"
+          className="text-gray-100 font-medium"
         >
           OpenBat Github
         </a>
