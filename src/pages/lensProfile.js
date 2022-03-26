@@ -1,29 +1,33 @@
 import { useEffect, useState } from "react";
 import { profiles } from "../services/get-profiles.ts";
 import { useParams } from "react-router-dom";
+import { TwitterShareButton } from "react-twitter-embed";
+import { followers } from '../services/followers.ts'
 
 function LensProfile() {
   const [profile, setProfile] = useState([]);
+  const [amountFollowers, setnAmountFollowers] = useState(0);
 
   let { ethAddress, id } = useParams();
-  console.log(id, ethAddress);
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await profiles(ethAddress);
       setProfile(response.profiles.items[id]);
+      const test = await followers("0x0319")
+      console.log(test);
     };
 
     fetchData();
   }, [ethAddress, id]);
 
   return (
-    <div class="h-screen bg-gray-200  dark:bg-gray-800   flex flex-wrap items-center  justify-center ">
-      <div class="container lg:w-2/6 xl:w-2/7 sm:w-full md:w-2/3    bg-white  shadow-lg    transform   duration-200 easy-in-out">
+    <div class="h-screen  flex flex-wrap items-center  justify-center ">
+      <div class="container lg:w-2/6 xl:w-2/7 sm:w-full md:w-2/3    bg-white  shadow-lg    transform   duration-200 easy-in-out rounded-xl p-0">
         <div class=" h-32 overflow-hidden">
           <img
-            class="w-full"
-            src="https://thumbs.dreamstime.com/b/green-matrix-big-virtual-screen-49825584.jpg"
+            class="min-w-fits rounded-xl"
+            src="https://previews.123rf.com/images/arsgera/arsgera2004/arsgera200400012/144578961-gemstone-diamond-or-shiny-glass-texture-pattern-kaleidoscope-background-3d-render-3d-illustration.jpg"
             alt=""
           />
         </div>
@@ -42,15 +46,22 @@ function LensProfile() {
             />
           )}
         </div>
-        <div class=" ">
-          <div class="text-center px-14">
+        <div class="flex-col items-center">
+          <div class="text-center px-14 flex flex-col items-center">
             <h2 class="text-gray-800 text-3xl font-bold">{profile.handle}</h2>
             <p class="text-gray-400 mt-2">{"@" + profile.handle}</p>
             <p class="mt-2 text-gray-600">{profile.bio}</p>
+            <TwitterShareButton
+              url={`http://localhost:3000/lensprofile/${ethAddress}/${id}`}
+              options={{
+                text: "I've just created a profile on Lens",
+                via: "OpenBat",
+              }}
+            />
           </div>
           <hr class="mt-6" />
-          <div class="flex  bg-gray-50 ">
-            <div class="text-center w-1/2 p-4 hover:bg-gray-100 cursor-pointer">
+          <div class="flex  bg-gray-50 rounded-xl ">
+            <div class="text-center w-1/2 p-4 hover:bg-gray-100 cursor-pointer rounded-xl">
               <p>
                 <span class="font-semibold">0 </span> Followers
               </p>

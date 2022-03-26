@@ -1,28 +1,26 @@
 import { TypedDataDomain, TypedDataField } from '@ethersproject/abstract-signer';
 import { ethers, utils, Wallet } from 'ethers';
 import { MUMBAI_RPC_URL, PK } from './config';
+var omitDeep = require('omit-deep');
 
 export const ethersProvider = new ethers.providers.JsonRpcProvider(MUMBAI_RPC_URL);
 
-export const getSigner = () => {
-  return new Wallet(PK, ethersProvider);
-};
+export const getTheSigner = () => {
+  const provider = new ethers.providers.Web3Provider(window.ethereum)
+  const signer = provider.getSigner();
+  return signer
+}
 
-export const getAddressFromSigner = () => {
-  return getSigner().address;
-};
-
-export const signedTypeData = (
+export const signedTypeData = async (
   domain: TypedDataDomain,
   types: Record<string, TypedDataField[]>,
   value: Record<string, any>
 ) => {
-  const signer = getSigner();
-  // remove the __typedname from the signature!
+  const signer = await getTheSigner();
   return signer._signTypedData(
-    domain,
-    types,
-    value
+    omitDeep(domain, '__typename'),
+    omitDeep(types, '__typename'),
+    omitDeep(value, '__typename')
   );
 };
 
@@ -30,12 +28,12 @@ export const splitSignature = (signature: string) => {
   return utils.splitSignature(signature);
 };
 
-export const sendTx = (
-  transaction: ethers.utils.Deferrable<ethers.providers.TransactionRequest>
-) => {
-  const signer = getSigner();
-  return signer.sendTransaction(transaction);
-};
+// export const sendTx = (
+//   transaction: ethers.utils.Deferrable<ethers.providers.TransactionRequest>
+// ) => {
+//   const signer = getSigner();
+//   return signer.sendTransaction(transaction);
+// };
 
 export const signText = async (text: string) => {
   

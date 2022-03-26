@@ -105,9 +105,7 @@ export const profiles = async (ethAddress: string, request?: ProfilesRequest) =>
   if (!request) {
     request = { ownedBy: address };
   }
-
-  // only showing one example to query but you can see from request
-  // above you can query many
+  
   const profilesFromProfileIds = await getProfilesRequest(request);
   console.log(profilesFromProfileIds.data);
   

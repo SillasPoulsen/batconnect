@@ -2,9 +2,10 @@ import TwitterHandleForm from "../components/twitterHandleForm";
 import NewLens from "../components/newLens";
 import { useState } from "react";
 
-const Twitter = () => {
+const Twitter = ({ ethAddress }) => {
   const [twitterHandle, setTwitterHandle] = useState("@you");
   const [toggle, setToggle] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <>
@@ -18,6 +19,8 @@ const Twitter = () => {
           <NewLens
             twitterHandle={twitterHandle}
             setTwitterHandle={setTwitterHandle}
+            isLoading={isLoading}
+            setIsLoading={setIsLoading}
             setToggle={setToggle}
           />
       )
