@@ -1,5 +1,6 @@
 import React from "react";
-import { Fragment, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { profilesByHandler } from "../services/get-profiles-by-handle.ts";
 import axios from "axios";
 
 const ListOfFriends = ({ twitterHandle }) => {
@@ -10,7 +11,7 @@ const ListOfFriends = ({ twitterHandle }) => {
       .then((res) => {
         console.log(res.data.friends[0].screenName);
         setFriends(res.data.friends);
-      });
+      })
   }, [twitterHandle]);
   
   return (

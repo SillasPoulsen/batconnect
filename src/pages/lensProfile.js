@@ -3,6 +3,7 @@ import { profiles } from "../services/get-profiles.ts";
 import { useParams } from "react-router-dom";
 import { TwitterShareButton } from "react-twitter-embed";
 import { followers } from '../services/followers.ts'
+import { profilesByHandler } from "../services/get-profiles-by-handle.ts";
 
 function LensProfile() {
   const [profile, setProfile] = useState([]);
@@ -16,6 +17,8 @@ function LensProfile() {
       setProfile(response.profiles.items[idx]);
       const test = await followers("0x0319")
       setAmountFollowers(test.followers.items[idx].totalAmountOfTimesFollowed);
+      // const test2 = await profilesByHandler(["newuser"])
+      // console.log("querying using handlers", test2); 
     };
 
     fetchData();

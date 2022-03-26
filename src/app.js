@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/navBar";
 import Home from "./pages/home";
-import Profile from "./pages/profile";
 import WhyLens from "./pages/whyLens";
 import Footer from "./components/footer";
 import Twitter from "./pages/twitter";
@@ -50,7 +49,6 @@ const App = () => {
               }
             />
             <Route path="/whylens" element={<WhyLens />} />
-            <Route path="/profile" element={<Profile />} />
             <Route
               path="/twitter"
               element={<Twitter ethAddress={ethAddrees} />}
