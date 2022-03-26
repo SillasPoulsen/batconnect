@@ -1,15 +1,15 @@
 import { useState } from "react";
-import TwitterHandleForm from "../components/twitterHandleForm";
+import TwitterHandleFormForFollowMyFriends from "../components/twitterHandleFormForFollowMyFriends";
 import ListOfFriends from "../components/ListOfFriends";
 
-const FollowMyFriends = () => {
-  const [twitterHandle, setTwitterHandle] = useState("@fracashawg");
-  const [toggle, setToggle] = useState(true);
+const FollowMyFriends = ({twitterHandle, setTwitterHandle}) => {
+  const [toggle, setToggle] = useState(false);
 
-  if (toggle) {
+  console.log("twitterHandle", twitterHandle);
+  if (twitterHandle === "@you" || toggle) {
     return (
       <>
-        <TwitterHandleForm
+        <TwitterHandleFormForFollowMyFriends
           twitterHandle={twitterHandle}
           setTwitterHandle={setTwitterHandle}
           setToggle={setToggle}
