@@ -3,7 +3,7 @@ import { profiles } from "../services/get-profiles.ts";
 import { useParams } from "react-router-dom";
 import { TwitterShareButton } from "react-twitter-embed";
 import { followers } from '../services/followers.ts'
-import { FollowButton } from "../components";
+import FollowButtonSmall from "../components/followButtonSmall";
 
 function LensProfile() {
   const [profile, setProfile] = useState([]);
@@ -37,7 +37,7 @@ function LensProfile() {
             alt=""
           />
         </div>
-        <div class="flex justify-center px-5  -mt-12">
+        <div class="flex justify-center px-5 -mt-12">
           {profile.picture ? (
             <img
               class="h-32 w-32 bg-white p-2 rounded-full"
@@ -57,14 +57,22 @@ function LensProfile() {
             <h2 class="text-gray-800 text-3xl font-bold">{profile.handle}</h2>
             <p class="text-gray-400 mt-2">{"@" + profile.handle}</p>
             <p class="mt-2 text-gray-600">{profile.bio}</p>
+            <div className="table content-evenly">
+            <div className="table-row content-center">
+              <div className="table-cell">
             <TwitterShareButton
               url={`http://localhost:3000/lensprofile/${ethAddress}/${idx}`}
               options={{
                 text: "I've just created a profile on Lens",
                 via: "OpenBat",
+                size: "large"
               }}
             />
-            <FollowButton ethAddress={ethAddress} id={lensid} />
+            </div>
+              <div className="table-cell">
+                <FollowButtonSmall ethAddress={ethAddress} id={lensid} />
+                </div>
+          </div></div>
           </div>
           <hr class="mt-6" />
           <div class="flex  bg-gray-50 rounded-xl ">

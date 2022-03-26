@@ -82,8 +82,8 @@ const Hero = ({ setProfileToggle, setEthAddress, allProfiles }) => {
       <h1 className="lg:text-8xl md:text:8xl sm:text-5xl text-5xl text-black mb-14 animate-bounce my-10 mt-0 font-medium text-3xl sm:text-4xl font-black></div>">
         🦇 FLY TO WEB3 🦇
       </h1>
-      <p className="mb-2">
-        Take your twitter account to WEB3, in less than 2 minutes
+      <p className="mb-5 text-3xl">
+        Move your twitter to WEB3 in ⚡️
       </p>
       {!currentAccount ? (
         <button
