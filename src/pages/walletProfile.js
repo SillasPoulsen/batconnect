@@ -33,6 +33,7 @@ function WalletProfile({allProfiles, setAllProfiles}) {
       </h1>
       <div className="user-list w-full max-w-lg mx-auto bg-white rounded-xl shadow-xl flex flex-col py-4">
         {/* <!--User row --> */}
+        {console.log(allProfiles)}
         {allProfiles &&
           allProfiles.map((address, idx) => {
             return (
