@@ -69,6 +69,8 @@ export const follow = async (profileId: string, address: string) => {
 
   const { v, r, s } = splitSignature(signature);
 
+  console.log("im here");
+  
   const tx = await lensHub.followWithSig({
     follower: address,
     profileIds: typedData.value.profileIds,
