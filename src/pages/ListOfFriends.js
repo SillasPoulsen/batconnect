@@ -1,43 +1,43 @@
-import { useEffect } from "react";
-import { profiles } from "../services/get-profiles.ts";
-import { useNavigate, useParams, Link } from "react-router-dom";
+import React from "react";
+import { useState, useEffect } from "react";
+import { profilesByHandler } from "../services/get-profiles-by-handle.ts";
+import axios from "axios";
 import { FollowButton } from "../components"
 
-function WalletProfile({ allProfiles, setAllProfiles }) {
-  const navigate = useNavigate();
-
-  console.log(allProfiles);
-
-  let { ethAddress } = useParams();
+const ListOfFriends = ({ twitterHandle, ethAddress }) => {
+  let [allProfiles, setAllProfiles] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await profiles(ethAddress);
-      setAllProfiles(response.profiles.items);
-    };
-    fetchData();
-  }, [allProfiles, ethAddress, setAllProfiles]);
-
-  function handleClick(idx, e) {
-    e.preventDefault();
-    navigate(`/lensprofile/${ethAddress}/${idx}`);
-  }
-
+    console.log(twitterHandle);
+    axios
+      .get("http://127.0.0.1:5000/friends/" + twitterHandle.replace("@", ""))
+      .then(async (res) => {
+        console.log(res.data.friends);
+        const dataArray = await res.data.friends
+        const result = await dataArray.map(a => a.screenName)
+        const result2 = result.map((element) => element.replace(/[^a-zA-Z ]/g, ""));
+        console.log("here ", result2);
+        const friendsArray = await profilesByHandler(result2)
+        setAllProfiles(friendsArray);
+        console.log("hello!", allProfiles, typeof allProfiles);
+      })
+  }, [twitterHandle, allProfiles]);
+  
   return (
+  // <div> hello</div>
     <div className="flex flex-col items-center justify-center min-h-screen p-16 bg-slate-200">
       <p className="day" style={{ display: "inline-block" }}>
         Profiles owned by:
       </p>
       <h1 className="my-10 mt-0 font-medium text-3xl sm:text-4xl font-black">
-        {ethAddress}
       </h1>
       <div className="user-list w-full max-w-lg mx-auto bg-white rounded-xl shadow-xl flex flex-col py-4">
         {/* <!--User row --> */}
-        { (allProfiles && allProfiles.length === 0) ? (
-             <>
-             <div className="h-screen  bg-slate-50 flex justify-center items-center w-full flex-col">
-               <div
-                 className="
+        { allProfiles.length === 0 ? (
+            <>
+            <div className="h-screen  bg-slate-50 flex justify-center items-center w-full flex-col">
+              <div
+                className="
                   spinner-border
                   animate-spin
                   inline-block
@@ -47,19 +47,18 @@ function WalletProfile({ allProfiles, setAllProfiles }) {
                   rounded-full
                   text-purple-500
                 "
-                 role="status"
-               ></div>
-               <div>
-                 <p>Searching profiles...</p>
-               </div>
-             </div>
-           </>
+                role="status"
+              ></div>
+              <div>
+                <p>Serching Profiles...</p>
+              </div>
+            </div>
+          </>
         ) : (
-          allProfiles.map((address, idx) => {
+          allProfiles.profiles.items.map((address) => {
             return (
               <div
                 key={address}
-                onClick={(event) => handleClick(idx, event)}
                 className="user-row flex flex-col items-center justify-between cursor-pointer  p-4 duration-300 sm:flex-row sm:py-4 sm:px-8 hover:bg-[#f6f8f9]"
               >
                 <div className="user flex items-center text-center flex-col sm:flex-row sm:text-left">
@@ -93,21 +92,6 @@ function WalletProfile({ allProfiles, setAllProfiles }) {
         </div>
     </div>
   );
-}
+};
 
-export default WalletProfile;
-
-/* 
-<>
-    <div>
-      {allProfiles && (allProfiles.map((address, idx) => {
-        return(
-        <div onClick={ (event) => handleClick(idx, event) }>
-          <p key={idx}>{address.handle}</p>
-          { address.picture ? <img src={ address.picture.original.url } alt="profilepicture"></img> : <p>hello</p> }
-          <p>{ address.bio }</p>
-        </div>
-        )
-      }))}
-    </div>
-     */
+export default ListOfFriends;
