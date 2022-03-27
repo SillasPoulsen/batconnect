@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { profiles } from "../services/get-profiles.ts";
 import { useParams } from "react-router-dom";
 import { TwitterShareButton } from "react-twitter-embed";
-import { followers } from '../services/followers.ts'
+import { followers } from "../services/followers.ts";
 import FollowButtonSmall from "../components/followButtonSmall";
 
 function LensProfile() {
   const [profile, setProfile] = useState([]);
   const [amountFollowers, setAmountFollowers] = useState(0);
-  const [lensid, setLensId] = useState()
+  const [lensid, setLensId] = useState();
 
   let { ethAddress, idx } = useParams();
 
@@ -18,7 +18,7 @@ function LensProfile() {
       setProfile(response.profiles.items[idx]);
       const id = response.profiles.items[idx].id;
       console.log("id", response.profiles.items[idx].id);
-      const test = await followers(id)
+      const test = await followers(id);
       console.log("test", test);
       setLensId(id);
       setAmountFollowers(test.followers.items.length);
@@ -58,21 +58,22 @@ function LensProfile() {
             <p class="text-gray-400 mt-2">{"@" + profile.handle}</p>
             <p class="mt-2 text-gray-600">{profile.bio}</p>
             <div className="table content-evenly">
-            <div className="table-row content-center">
-              <div className="table-cell">
-            <TwitterShareButton
-              url={`http://localhost:3000/lensprofile/${ethAddress}/${idx}`}
-              options={{
-                text: "I've just created a profile on Lens",
-                via: "OpenBat",
-                size: "large"
-              }}
-            />
-            </div>
-              <div className="table-cell">
-                <FollowButtonSmall ethAddress={ethAddress} id={lensid} />
+              <div className="flex justify-around">
+                <div className="table-cell">
+                  <TwitterShareButton
+                    url={`http://localhost:3000/lensprofile/${ethAddress}/${idx}`}
+                    options={{
+                      text: "I've just created a profile on Lens",
+                      via: "OpenBat",
+                      size: "large",
+                    }}
+                  />
                 </div>
-          </div></div>
+                <div className="table-cell">
+                  <FollowButtonSmall ethAddress={ethAddress} id={lensid} />
+                </div>
+              </div>
+            </div>
           </div>
           <hr class="mt-6" />
           <div class="flex  bg-gray-50 rounded-xl ">
