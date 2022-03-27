@@ -6,7 +6,10 @@ const TwitterHandleFormForFollowMyFriends = ({ setTwitterHandle, setToggle }) =>
 
   return (
     <>
-      <div className="h-screen dark:bg-gray-800   flex flex-wrap items-center  justify-center">
+      <div className="h-screen dark:bg-gray-800   flex flex-col flex-wrap items-center justify-center">
+        <h1 className="my-10 mt-0 font-medium text-3xl sm:text-4xl font-black">
+         Who else is a vampire? 😈 
+        </h1>
         <form className="m-4 flex" onSubmit={() => setToggle(false)}>
           <input
             className="rounded-l-full p-4 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white focus:outline-none"
