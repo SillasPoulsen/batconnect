@@ -2,10 +2,13 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { profilesByHandler } from "../services/get-profiles-by-handle.ts";
 import axios from "axios";
-import { FollowButton } from "../components"
+import { FollowButton } from "../components";
+import { useNavigate } from "react-router-dom";
 
 const ListOfFriends = ({ twitterHandle, ethAddress }) => {
   let [allProfiles, setAllProfiles] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.log(twitterHandle);
@@ -13,28 +16,34 @@ const ListOfFriends = ({ twitterHandle, ethAddress }) => {
       .get("http://127.0.0.1:5000/friends/" + twitterHandle.replace("@", ""))
       .then(async (res) => {
         console.log(res.data.friends);
-        const dataArray = await res.data.friends
-        const result = await dataArray.map(a => a.screenName)
-        const result2 = result.map((element) => element.replace(/[^a-zA-Z ]/g, ""));
+        const dataArray = await res.data.friends;
+        const result = await dataArray.map((a) => a.screenName);
+        const result2 = result.map((element) =>
+          element.replace(/[^a-zA-Z ]/g, "")
+        );
         console.log("here ", result2);
-        const friendsArray = await profilesByHandler(result2)
+        const friendsArray = await profilesByHandler(result2);
         setAllProfiles(friendsArray);
         console.log("hello!", allProfiles, typeof allProfiles);
-      })
+      });
   }, [twitterHandle, allProfiles]);
-  
+
+  function handleClick(idx, e) {
+    e.preventDefault();
+    navigate(`/lensprofile/${ethAddress}/${idx}`);
+  }
+
   return (
-  // <div> hello</div>
+    // <div> hello</div>
     <div className="flex flex-col items-center justify-center min-h-screen p-16 bg-slate-200">
       <p className="day" style={{ display: "inline-block" }}>
-        Profiles owned by:
+        Profiles you follow on Twitter:
       </p>
-      <h1 className="my-10 mt-0 font-medium text-3xl sm:text-4xl font-black">
-      </h1>
+      <h1 className="my-10 mt-0 font-medium text-3xl sm:text-4xl font-black"></h1>
       <div className="user-list w-full max-w-lg mx-auto bg-white rounded-xl shadow-xl flex flex-col py-4">
         {/* <!--User row --> */}
-        { allProfiles.length === 0 ? (
-            <>
+        {allProfiles.length === 0 ? (
+          <>
             <div className="h-screen  bg-slate-50 flex justify-center items-center w-full flex-col">
               <div
                 className="
@@ -55,9 +64,10 @@ const ListOfFriends = ({ twitterHandle, ethAddress }) => {
             </div>
           </>
         ) : (
-          allProfiles.profiles.items.map((address) => {
+          allProfiles.profiles.items.map((address, idx) => {
             return (
               <div
+                onClick={(event) => handleClick(idx, event)}
                 key={address}
                 className="user-row flex flex-col items-center justify-between cursor-pointer  p-4 duration-300 sm:flex-row sm:py-4 sm:px-8 hover:bg-[#f6f8f9]"
               >
@@ -86,10 +96,12 @@ const ListOfFriends = ({ twitterHandle, ethAddress }) => {
                     </a>
                   </div>
                 </div>
-                <FollowButton ethAddress={ethAddress} id={address.id}/>
+                <FollowButton ethAddress={ethAddress} id={address.id} />
               </div>
-            );}))}
-        </div>
+            );
+          })
+        )}
+      </div>
     </div>
   );
 };

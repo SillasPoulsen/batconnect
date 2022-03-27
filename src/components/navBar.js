@@ -15,7 +15,7 @@ const NavBar = ({ profileToggle, ethAddress }) => {
               <div className="container mx-auto flex items-center justify-between">
                 <h1 className="md:w-2/12 cursor-pointer items-right dark:text-white" aria-label="the BatConnect.">
                   <Link to="/" className="pl-8">
-                    🦇 <span className="text-gray-100">batCon</span><span className="text-gray-400">.</span>
+                    🦇 <span className="text-gray-100">batCon</span><span className="text-gray-400">.eth</span>
                   </Link> 
                 </h1>
                 <ul class="hidden w-8/12 md:flex items-left justify-left">
