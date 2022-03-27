@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { profiles } from "../services/get-profiles.ts";
 import { useParams } from "react-router-dom";
 import { TwitterShareButton } from "react-twitter-embed";
-import { followers } from '../services/followers.ts'
+import { followers } from "../services/followers.ts";
 import { FollowButton } from "../components";
 
 function LensProfile() {
   const [profile, setProfile] = useState([]);
   const [amountFollowers, setAmountFollowers] = useState(0);
-  const [lensid, setLensId] = useState()
+  const [lensid, setLensId] = useState();
 
   let { ethAddress, idx } = useParams();
 
@@ -18,7 +18,7 @@ function LensProfile() {
       setProfile(response.profiles.items[idx]);
       const id = response.profiles.items[idx].id;
       console.log("id", response.profiles.items[idx].id);
-      const test = await followers(id)
+      const test = await followers(id);
       console.log("test", test);
       setLensId(id);
       setAmountFollowers(test.followers.items.length);
