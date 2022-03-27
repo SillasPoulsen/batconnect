@@ -28,9 +28,12 @@ const ListOfFriends = ({ twitterHandle, ethAddress }) => {
       });
   }, [twitterHandle, allProfiles]);
 
-  function handleClick(idx, e) {
+  console.log("allprofile", allProfiles);
+
+  function handleClick(idx, e, address) {
+    console.log("this is is the index", idx, "this is the event", e, "this is the address", address)
     e.preventDefault();
-    navigate(`/lensprofile/${ethAddress}/${idx}`);
+    navigate(`/lensprofile/${address.ownedBy}/0`);
   }
 
   return (
@@ -67,7 +70,7 @@ const ListOfFriends = ({ twitterHandle, ethAddress }) => {
           allProfiles.profiles.items.map((address, idx) => {
             return (
               <div
-                onClick={(event) => handleClick(idx, event)}
+                onClick={(event) => handleClick(idx, event, address)}
                 key={address}
                 className="user-row flex flex-col items-center justify-between cursor-pointer  p-4 duration-300 sm:flex-row sm:py-4 sm:px-8 hover:bg-[#f6f8f9]"
               >

@@ -5,7 +5,7 @@ const FollowButton = ({ ethAddress, id }) => {
   const handleFollow = () => {
     const profileId = id;
 
-    follow(profileId, ethAddress);
+    follow(profileId);
   };
   return (
     <div className="user-option sm:ml-auto sm:mr-0">
