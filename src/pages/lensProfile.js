@@ -58,7 +58,7 @@ function LensProfile() {
             <p class="text-gray-400 mt-2">{"@" + profile.handle}</p>
             <p class="mt-2 text-gray-600">{profile.bio}</p>
             <div className="table content-evenly">
-              <div className="table-row content-center">
+              <div className="flex justify-around">
                 <div className="table-cell">
                   <TwitterShareButton
                     url={`http://localhost:3000/lensprofile/${ethAddress}/${idx}`}
