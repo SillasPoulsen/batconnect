@@ -27,7 +27,7 @@ const ListOfFriends = ({ twitterHandle, ethAddress }) => {
   // <div> hello</div>
     <div className="flex flex-col items-center justify-center min-h-screen p-16 bg-slate-200">
       <p className="day" style={{ display: "inline-block" }}>
-        Profiles owned by:
+        Profiles you follow on Twitter:
       </p>
       <h1 className="my-10 mt-0 font-medium text-3xl sm:text-4xl font-black">
       </h1>

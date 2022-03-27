@@ -17,6 +17,7 @@ const CreateProfileButton = ({
     try {
       setIsLoading(true);
       e.preventDefault();
+      console.log("test", lensHandle, lensImage);
       await createProfile(lensHandle, lensImage);
       navigate(`/lensprofile/${ethAddress}/0`);
     } catch (error) {
