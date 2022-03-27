@@ -34,7 +34,7 @@ const NewLens = ({
         <form>
           <div className="bg-white rounded-xl w-screen shadow-md max-w-sm">
             <span
-              className="text-gray-300 ml-2"
+              className="text-gray-300 ml-2 cursor-pointer"
               onClick={() => {
                 setToggle(true);
               }}
