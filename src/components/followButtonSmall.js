@@ -5,7 +5,7 @@ const FollowButtonSmall = ({ ethAddress, id }) => {
   const handleFollow = () => {
     const profileId = id;
 
-    follow(profileId, ethAddress);
+    follow(profileId);
   };
   return (
       <button

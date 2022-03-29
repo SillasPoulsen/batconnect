@@ -3,6 +3,7 @@ import { apolloClient } from '../apollo-client';
 import { login } from './login';
 import { signedTypeData, splitSignature } from '../ethers.service';
 import { lensHub } from '../lens-hub';
+import { getTheSigner } from '../ethers.service';
 
 const CREATE_FOLLOW_TYPED_DATA = `
   mutation($request: FollowRequest!) { 
@@ -45,10 +46,11 @@ const createFollowTypedData = (followRequestInfo: any) => {
   });
 };
 
-export const follow = async (profileId: string, address: string) => {
-  
-  console.log('follow: address', address);
 
+export const follow = async (profileId: string) => {
+  
+  const address = await getTheSigner().getAddress();
+  console.log('follow: address', address);
   await login(address);
 
   // hard coded to make the code example clear
