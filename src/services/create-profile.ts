@@ -50,11 +50,13 @@ export const createProfile = async (
 
   await login(address);
 
-  console.log("test2", handle, profilePictureUri);
+  console.log("picture test ", profilePictureUri);
+  
+  const picture = "https://pbs.twimg.com/profile_images/1445430578443169796/JH226P-D_400x400.jpg"
 
   const createProfileResult = await createProfileRequest({
     handle: handle,
-    profilePictureUri: profilePictureUri,
+    profilePictureUri: picture,
     bio: bio,
   });
 

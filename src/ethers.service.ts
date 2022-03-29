@@ -1,6 +1,6 @@
 import { TypedDataDomain, TypedDataField } from '@ethersproject/abstract-signer';
-import { ethers, utils, Wallet } from 'ethers';
-import { MUMBAI_RPC_URL, PK } from './config';
+import { ethers, utils } from 'ethers';
+import { MUMBAI_RPC_URL } from './config';
 var omitDeep = require('omit-deep');
 
 export const ethersProvider = new ethers.providers.JsonRpcProvider(MUMBAI_RPC_URL);
@@ -27,13 +27,6 @@ export const signedTypeData = async (
 export const splitSignature = (signature: string) => {
   return utils.splitSignature(signature);
 };
-
-// export const sendTx = (
-//   transaction: ethers.utils.Deferrable<ethers.providers.TransactionRequest>
-// ) => {
-//   const signer = getSigner();
-//   return signer.sendTransaction(transaction);
-// };
 
 export const signText = async (text: string) => {
   

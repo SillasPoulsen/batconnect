@@ -21,9 +21,10 @@ const NewLens = ({
     axios
       .get("http://127.0.0.1:5000/user/" + twitterHandle.replace("@", ""))
       .then((res) => {
+        console.log("twitter api response ", res);
         setLensBio(res.data.user.bio);
         setLensImage(
-          res.data.user.profileImageUrl.replace("_normal", "_bigger")
+          res.data.user.profileImageUrl
         );
       });
   }, [twitterHandle]);
